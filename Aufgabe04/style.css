@@ -236,6 +236,8 @@ body {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             text-align: center;
             display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
  }
  }
 
