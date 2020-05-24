@@ -41,6 +41,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+
 }
 
 
@@ -85,6 +86,13 @@ h1 {
     font-size: 100px;
 }
 
+h2 {
+    font-family: sans-serif;
+    font-weight: bolder;
+    color:black;
+    margin-top: -10px;
+    text-align: left;
+}
 h3 {
     font-family: sans-serif;
     font-weight: bolder;
@@ -127,7 +135,6 @@ table {
 
 input {
     border: 0;
-    font-weight: bold;
     background-color: darkgrey;
     color: white;
 }

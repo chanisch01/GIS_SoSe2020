@@ -1,0 +1,264 @@
+html {
+    background-color: gainsboro;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: serif;
+    background-color: white;
+}
+
+body { 
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+
+}
+
+#oben {
+    border: 0;
+  
+}
+
+nav {
+   text-align: center;
+   margin-top: 60px ;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    margin: 0px 1px;
+}
+
+li a {
+    display: inline-block;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+nav a:hover {
+    background-color: lightgrey;
+    color: grey;
+    font-weight: bolder;
+}
+
+.active {
+    background-color: pink;
+}
+ 
+#bilder {
+    margin-top: 50px;
+} 
+
+p {
+    color: grey;
+    text-align: center;
+    font-size: 11pt;
+    margin-top: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+#logo {
+    float: left;
+    margin-top: -50px;
+}
+
+h1 {
+    font-weight: bolder;
+    color:grey;
+    margin-top:40px;
+    font-size: 60px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-weight: bolder;
+    color:grey;
+    margin-top: -20px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+#wagen {
+    margin-right: 15px;
+}
+
+
+.bowls {
+    align-items: center;
+    text-align: center;
+}
+
+#kiwi_mango_bowl {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+ margin-top: 50px;
+}
+
+
+#chia_samen_bowl {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+#haferflocken_rosinen_müsli {
+ display: inline-block;   
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#tofu_bohnen_bowl {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#hackfleisch_käse {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#kartoffeln {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+#bild {
+    float: left;
+    padding-left: 20px;
+}
+
+.zubehör {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#einweggläser {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+ margin-top: 50px;
+}
+
+
+#SmoothieMixer {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#messer {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#kochlöffel {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+ margin-top: 100px;
+}
+
+#schüssel {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#gläser {
+ display: inline-block;
+ border: 5px solid white;
+ background-color: white;
+ padding-bottom: 20px;
+}
+
+
+#überschrift1 {
+   margin-top: 100px;
+
+}
+
+#überschrift2 {
+    margin-top: 100px;
+}
+
+#icons {
+    list-style: none;
+    align-items: center;
+    display: inline-block;
+    margin-top: -10px;
+}
+
+hr {
+    color: grey;
+}
+
+/* für Smartphone*/
+
+@media screen and (max-width:600px) {
+body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            padding-top: 250px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+#logo {
+width: 80px; height: 80px;
+}
+
+#nav {
+    float: left;
+}
+    }
+
+
+/* für Tablet*/
+
+@media screen and (max-width:1024px) {
+    body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        display: inline-block;
+    }
+
+
+   
+}
