@@ -136,8 +136,9 @@ div button:hover {
     
     }
 
-    div img {
+    div >img {
         width: 400px;
+        height: 300px ;
     }
 }
 

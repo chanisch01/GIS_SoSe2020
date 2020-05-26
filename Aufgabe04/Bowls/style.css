@@ -63,7 +63,7 @@ nav a:hover {
 
  div >img {
     width: 400px;
-    height: 300px;
+    height:300px;
 }
 
 div p {
@@ -134,16 +134,16 @@ div button:hover {
     
     }
 
-    div img {
+    div >img {
         width: 400px;
-        height: 200px;
+        height: 300px;
     }
 }
 
 /* Smartphones*/
 
  @media all and (max-width: 600px) {
-        nav{
+        nav {
             flex-wrap: wrap;
             display: flex;
             justify-content: space-between;
