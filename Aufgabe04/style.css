@@ -7,6 +7,7 @@ html {
     background-color: white;
 }
 
+
 nav {
     text-align: center;
     margin-top: 60px ;
@@ -35,7 +36,7 @@ li a {
  }
  
 nav a:hover {
-    background-color: lightgrey;
+     background-color: lightgrey;
      color: grey;
      font-weight: bolder;
  }
@@ -51,41 +52,61 @@ nav a:hover {
     width: 100px;
 }
 
-#titelbild {
+.bowls div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     margin-top: 20px;
-    margin-bottom: 20px;
-    width: 50%
-    
+ }
+
+ div >img {
+    width: 400px;
+    height: 300px;
 }
 
 div p {
     color: grey;
 }
 
-h1 {
-    color:grey;
-    margin-top:40px;
-    font-size: 60px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-}
-
-h2 {
+h3{
     color: grey;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    
 }
 
-h2 ~ p {
+h3 + p {
     font-weight: bolder;
 }
 
 
-#wagen {
-    margin:0px;
-    width: 16px;
-    height: 16px;
+.preis {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: grey;
+}
+
+
+#Überschrift {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: grey;
+    font-weight: 100px;
+    text-align: center;
+}
+
+
+div button {
+    background-color: pink;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 20px;
+    color: grey;
+}
+
+div button:hover {
+    color: grey;
+    font-weight: bolder; 
 }
 
 #icons {
@@ -93,6 +114,12 @@ h2 ~ p {
     align-items: center;
     margin-top: 30px;
     display: inline-flex;
+}
+
+#wagen {
+    margin:0px;
+    width: 16px;
+    height: 16px;
 }
 
 /* Tablet*/
@@ -109,30 +136,30 @@ h2 ~ p {
     }
 
     div img {
-        width: 300;
+        width: 400;
+        height: 200;
     }
 }
 
-        
 /* Smartphones*/
 
-@media all and (max-width: 600px) {
-    nav{
-        flex: wrap;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    div button {
-        padding: 5px 7.5px;
-    }
-
-    div >img {
-        width: 300px;
-    }
+ @media all and (max-width: 600px) {
+        nav{
+            flex: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     
-    #logo {
-        margin-top: -30px;
-    }
-       }
+        div button {
+            padding: 5px 7.5px;
+        }
+    
+        div >img {
+            width: 300px;
+        }
+        
+        #logo {
+            margin-top: -30px;
+        }
+}    
