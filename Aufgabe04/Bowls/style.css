@@ -92,7 +92,7 @@ h3 + p {
 #Überschrift {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: grey;
-    font-weight: 100px;
+    font-size: 100px;
     text-align: center;
 }
 
@@ -136,8 +136,8 @@ div button:hover {
     }
 
     div img {
-        width: 400;
-        height: 200;
+        width: 400px;
+        height: 200px;
     }
 }
 
@@ -145,7 +145,7 @@ div button:hover {
 
  @media all and (max-width: 600px) {
         nav{
-            flex: wrap;
+            flex-wrap: wrap;
             display: flex;
             justify-content: space-between;
             align-items: center;

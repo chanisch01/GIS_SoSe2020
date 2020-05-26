@@ -111,7 +111,7 @@ div button:hover {
 
  @media all and (max-width: 600px) {
         nav{
-            flex: wrap;
+            flex-wrap: wrap;
             display: flex;
             justify-content: space-between;
             align-items: center;
