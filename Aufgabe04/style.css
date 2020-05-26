@@ -102,17 +102,9 @@ div button:hover {
     nav {
         justify-content: space-evenly;
         display: inline-flex;
-    }
+     }
 
-    div button {
-        padding: 5px 7.5px;
-    
-    }
 
-    div img {
-        width: 400;
-        height: 200;
-    }
 }
 
 /* Smartphones*/
@@ -123,14 +115,6 @@ div button:hover {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-    
-        div button {
-            padding: 5px 7.5px;
-        }
-    
-        div >img {
-            width: 300px;
         }
         
         #logo {
