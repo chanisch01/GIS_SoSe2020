@@ -3,16 +3,14 @@ var Bowls;
 (function (Bowls) {
     for (let i = 0; i < bowls.length; i++) {
         //Überschrift
-        let artikelUeberschrift = document.createElement("h2");
-        if (i == 0) {
-            artikelUeberschrift.innerHTML = "Bowls";
-        }
-        else {
-            artikelUeberschrift.innerHTML = "";
-        }
-        artikelUeberschrift.setAttribute("id", "Überschrift");
         let artikelBowls = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
+        if (i == 0) {
+            artikelBowls.innerHTML = "Bowls";
+        }
+        else {
+            artikelBowls.innerHTML = " ";
+        }
         //div Container für Bowls
         let divBowls = document.createElement("div");
         divBowls.setAttribute("class", "bowls");

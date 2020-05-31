@@ -3,7 +3,6 @@
     for (let i: number = 0; i < zubehör.length; i++) {
   
       //Überschrift
-
       let artikelZubehör: HTMLElement = document.createElement("h2");
       artikelZubehör.innerHTML = "Zubehör";
     
