@@ -52,4 +52,4 @@ let zubehör6: Zubehör = {
 //Array
     
 let zubehör: Zubehör[] = [zubehör1, zubehör2, zubehör3, zubehör4, zubehör5, zubehör6];
-    
+//# sourceMappingURL=data.js.map

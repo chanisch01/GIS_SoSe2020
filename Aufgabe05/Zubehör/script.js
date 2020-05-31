@@ -41,4 +41,5 @@ var Zubehör;
         document.getElementById("liste")?.appendChild(divZubehör);
     }
 })(Zubehör || (Zubehör = {}));
+//# sourceMappingURL=data.js.map
 //# sourceMappingURL=script.js.map
