@@ -11,7 +11,13 @@ namespace Bowls {
         let artikelBowls: HTMLElement = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
        
-    
+        if (i == 0) {
+          artikelZubehör.innerHTML = "Zubehör";
+
+      } else {
+          artikelZubehör.innerHTML = " ";
+      }
+
         
         
         //div Container für Bowls

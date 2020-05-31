@@ -8,6 +8,12 @@ var Bowls;
         artikelUeberschrift.setAttribute("id", "Überschrift");
         let artikelBowls = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
+        if (i == 0) {
+            artikelZubehör.innerHTML = "Zubehör";
+        }
+        else {
+            artikelZubehör.innerHTML = " ";
+        }
         //div Container für Bowls
         let divBowls = document.createElement("div");
         divBowls.setAttribute("class", "bowls");
