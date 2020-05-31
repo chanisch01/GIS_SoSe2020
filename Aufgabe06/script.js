@@ -4,8 +4,13 @@ var Bowls;
     for (let i = 0; i < bowls.length; i++) {
 
         //Überschrift
-        let artikelBowls = document.createElement("h2");
-        artikelBowls.innerHTML = "Bowls";
+    
+        if (i == 0) {
+            artikelBowls.innerHTML = "Bowls";
+        }
+        else {
+            artikelBowls.innerHTML = " ";
+        }
 
         //div Container für Bowls
         let divBowls = document.createElement("div");
