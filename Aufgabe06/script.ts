@@ -4,19 +4,17 @@ namespace Bowls {
 
         
         //Überschrift
-      
+        let artikelUeberschrift: HTMLElement = document.createElement("h2");
+        
+        if (i == 0) {
+            artikelUeberschrift.innerHTML = "Bowls";
+        } else {
+            artikelUeberschrift.innerHTML = "";
+        }
+        artikelUeberschrift.setAttribute("id", "Überschrift");
         let artikelBowls: HTMLElement = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
-       
-        if (i == 0) {
-          artikelBowls.innerHTML = "Bowls";
-
-      } else {
-          artikelBowls.innerHTML = " ";
-      }
-
-        
-        
+      
         //div Container für Bowls
         let divBowls: HTMLElement = document.createElement("div");
         divBowls.setAttribute("class", "bowls");
