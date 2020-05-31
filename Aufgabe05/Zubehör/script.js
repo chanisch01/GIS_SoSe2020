@@ -1,15 +1,10 @@
 "use strict";
 var Zubehör;
 (function (Zubehör) {
-
-
     for (let i = 0; i < zubehör.length; i++) {
 
 
         //Überschrift
-        let artikelUeberschrift = document.createElement("h2");
-        artikelUeberschrift.innerHTML = "Zubehör";
-        artikelUeberschrift.setAttribute("id", "Überschrift");
         let artikelZubehör = document.createElement("h2");
         artikelZubehör.innerHTML = "Zubehör";
         artikelZubehör.setAttribute("id", "Überschrift");
@@ -57,5 +52,5 @@ var Zubehör;
         document.getElementById("liste")?.appendChild(artikel);
         document.getElementById("liste")?.appendChild(artikelZubehör);
     }
-})(Aufgabe05 || (Aufgabe05 = {}));
+})(Zubehör || (Zubehör = {}));
 //# sourceMappingURL=script.js.map

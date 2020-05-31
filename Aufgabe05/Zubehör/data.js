@@ -1,4 +1,5 @@
 "use strict";
+//Interface
 
 let zubehör1 = {
     bild: "zubehör1.jpg",

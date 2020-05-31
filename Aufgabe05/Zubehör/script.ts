@@ -1,18 +1,12 @@
   namespace Zubehör {
   
-     
-   
     for (let i: number = 0; i < zubehör.length; i++) {
   
       //Überschrift
-      let artikelUeberschrift: HTMLElement = document.createElement("h2");
-      artikelUeberschrift.innerHTML = "Zubehör";
-      artikelUeberschrift.setAttribute("id", "Überschrift");
 
       let artikelZubehör: HTMLElement = document.createElement("h2");
       artikelZubehör.innerHTML = "Zubehör";
-      artikelZubehör.setAttribute("id", "Überschrift");
-
+    
       if (i == 0) {
           artikelZubehör.innerHTML = "Zubehör";
 
