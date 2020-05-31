@@ -44,5 +44,5 @@ let zubehör6 = {
 };
 
 //Array
-let bowls = [zubehör1, zubehör2, zubehör3, zubehör4, zubehör5, zubehör6];
+let zubehör = [zubehör1, zubehör2, zubehör3, zubehör4, zubehör5, zubehör6];
 //# sourceMappingURL=data.js.map
