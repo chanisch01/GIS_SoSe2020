@@ -52,55 +52,30 @@ nav a:hover {
     width: 100px;
 }
 
-.bowls div{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
- }
-
- div >img {
-    width: 400px;
-    height:300px;
-}
-
 div p {
     color: grey;
 }
 
-h3{
+h1 {
+    color: grey;
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+}
+
+h2 {
     color: grey;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    
 }
 
-h3 + p {
-    font-weight: bolder;
+h2 ~ p  {
+    font-weight: bold;
 }
 
-
-.preis {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: grey;
-}
-
-
-#Überschrift {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: grey;
-    text-align: center;
-}
-
-
-div button {
-    background-color: pink;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-bottom: 20px;
-    color: grey;
+#titelbild {
+    width: 50%;
 }
 
 div button:hover {
@@ -127,35 +102,19 @@ div button:hover {
     nav {
         justify-content: space-evenly;
         display: inline-flex;
-    }
+     }
 
-    div button {
-        padding: 5px 7.5px;
-    
-    }
 
-    div >img {
-        width: 400px;
-        height: 300px;
-    }
 }
 
 /* Smartphones*/
 
  @media all and (max-width: 600px) {
-        nav {
+        nav{
             flex-wrap: wrap;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-    
-        div button {
-            padding: 5px 7.5px;
-        }
-    
-        div >img {
-            width: 300px;
         }
         
         #logo {
