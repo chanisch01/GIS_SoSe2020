@@ -3,9 +3,6 @@ var Bowls;
 (function (Bowls) {
     for (let i = 0; i < bowls.length; i++) {
         //Überschrift
-        let artikelUeberschrift = document.createElement("h2");
-        artikelUeberschrift.innerHTML = "Bowls";
-        artikelUeberschrift.setAttribute("id", "Überschrift");
         let artikelBowls = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
         if (i == 0) {

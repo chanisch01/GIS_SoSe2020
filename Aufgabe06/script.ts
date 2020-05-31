@@ -4,9 +4,6 @@ namespace Bowls {
 
         
         //Überschrift
-        let artikelUeberschrift: HTMLElement = document.createElement("h2");
-        artikelUeberschrift.innerHTML = "Bowls";
-        artikelUeberschrift.setAttribute("id", "Überschrift");
       
         let artikelBowls: HTMLElement = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
