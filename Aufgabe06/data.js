@@ -1,6 +1,5 @@
 "use strict";
 //Interface
-
 let bowl1 = {
     bild: "bowl1.jpg",
     name: "Der Snack zwischendurch",
@@ -39,4 +38,5 @@ let bowl6 = {
 };
 //Array
 let bowls = [bowl1, bowl2, bowl3, bowl4, bowl5, bowl6];
+//# sourceMappingURL=data.js.map
 //# sourceMappingURL=data.js.map

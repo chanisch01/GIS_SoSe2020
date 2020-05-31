@@ -43,4 +43,5 @@ var Bowls;
         document.getElementById("liste")?.appendChild(divBowls);
     }
 })(Bowls || (Bowls = {}));
+//# sourceMappingURL=data.js.map
 //# sourceMappingURL=script.js.map
