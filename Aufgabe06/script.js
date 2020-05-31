@@ -15,12 +15,7 @@ var Bowls;
         artikelBowls.innerHTML = "Bowls";
         artikelBowls.setAttribute("id", "Überschrift");
         
-        if (i == 0) {
-            artikelBowls.innerHTML = "Bowls";
-        }
-        else {
-            artikelBowls.innerHTML = " ";
-        }
+    
 
         //div Container für Bowls
         let divBowls = document.createElement("div");
