@@ -10,7 +10,7 @@ html {
 
 nav {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 60px ;
  }
  
 ul {
@@ -47,25 +47,23 @@ nav a:hover {
 }
 
 #logo {
-        float: left;
-        margin-top: 30px;
-        width: 100px;
-    }
-    
+    float: left;
+    margin-top: 30px;
+    width: 100px;
+}
 
-.zubehör div{
+.bowls div{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
- 
-}
+ }
 
  div >img {
     width: 400px;
-    height: 300px;
+    height:300px;
 }
 
 div p {
@@ -73,16 +71,17 @@ div p {
 }
 
 h3{
-        color: grey;
-        text-align: center;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        text-align: center;
-        
-    }
+    color: grey;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    
+}
 
-    h3 + p {
-        font-weight: bolder;
-    }
+h3 + p {
+    font-weight: bolder;
+}
+
 
 .preis {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -101,14 +100,13 @@ div button {
     background-color: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 20px;
-    color:grey;
+    color: grey;
 }
 
 div button:hover {
     color: grey;
     font-weight: bolder; 
 }
-
 
 #icons {
     list-style: none;
@@ -138,32 +136,29 @@ div button:hover {
 
     div >img {
         width: 400px;
-        height: 300px ;
+        height: 300px;
     }
 }
 
-        
 /* Smartphones*/
 
-@media all and (max-width: 600px) {
-    nav{
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    div button {
-        padding: 5px 7.5px;
-    }
-
-    div >img {
-        width: 300px;
-    }
+ @media all and (max-width: 600px) {
+        nav {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     
-    #logo {
-        margin-top: -30px;
-    }
-}
-
-
+        div button {
+            padding: 5px 7.5px;
+        }
+    
+        div >img {
+            width: 300px;
+        }
+        
+        #logo {
+            margin-top: -30px;
+        }
+}    

@@ -1,63 +1,64 @@
-namespace Aufgabe05 {
+  namespace Aufgabe05 {
   
-  
-    for (let i: number = 0; i < zubehör.length; i++) {
+     
+   
+    for (let i: number = 0; i < bowls.length; i++) {
   
       //Überschrift
       let artikelUeberschrift: HTMLElement = document.createElement("h2");
-      artikelUeberschrift.innerHTML = "Zubehör";
+      artikelUeberschrift.innerHTML = "Bowls";
       artikelUeberschrift.setAttribute("id", "Überschrift");
 
-      let artikelZubehör: HTMLElement = document.createElement("h2");
-      artikelZubehör.innerHTML = "Zubehör";
-      artikelZubehör.setAttribute("id", "Überschrift");
+      let artikelBowls: HTMLElement = document.createElement("h2");
+      artikelBowls.innerHTML = "Bowls";
+      artikelBowls.setAttribute("id", "Überschrift");
 
       if (i == 0) {
-          artikelZubehör.innerHTML = "Zubehör";
+          artikelBowls.innerHTML = "Bowls";
 
       } else {
-          artikelZubehör.innerHTML = " ";
+          artikelBowls.innerHTML = " ";
       }
 
   
       //div Container für Zubehör
-      let divZubehör: HTMLElement = document.createElement("div");
-      divZubehör.setAttribute("class", "zubehör");
+      let divBowls: HTMLElement = document.createElement("div");
+      divBowls.setAttribute("class", "bowls");
       let horizontalruleElement: HTMLElement = document.createElement("hr");
   
       //Bild
-      let imgZubehör: HTMLElement = document.createElement("img");
-      imgZubehör.setAttribute("src", zubehör[i].bild);
-      imgZubehör.setAttribute("alt", "zubehör");
+      let imgBowls: HTMLElement = document.createElement("img");
+      imgBowls.setAttribute("src", bowls[i].bild);
+      imgBowls.setAttribute("alt", "bowls");
   
       //Name des Artikels
       let artikelName: HTMLElement = document.createElement("h3");
-      artikelName.innerHTML = zubehör[i].name;
+      artikelName.innerHTML = bowls[i].name;
   
       //Beschreibung des Artikel
       let artikelBeschreibung: HTMLElement = document.createElement("h3");
-      artikelBeschreibung.innerHTML = zubehör[i].beschreibung;
+      artikelBeschreibung.innerHTML = bowls[i].beschreibung;
 
      
   
       //Preis 
-      let zubehörPreis: HTMLElement = document.createElement("p");
-      zubehörPreis.innerHTML = zubehör[i].preis;
+      let bowlsPreis: HTMLElement = document.createElement("p");
+      bowlsPreis.innerHTML = bowls[i].preis;
   
       //Button "Kaufen"
       let buttonKaufen: HTMLElement = document.createElement("button");
       buttonKaufen.innerHTML = "Kaufen";
   
       // Tags werden als child zu div Container hinzugefügt
-      divZubehör.appendChild(imgZubehör);
-      divZubehör.appendChild(artikelName);
-      divZubehör.appendChild(artikelBeschreibung);
-      divZubehör.appendChild(zubehörPreis);
-      divZubehör.appendChild(buttonKaufen);
+      divBowls.appendChild(imgBowls);
+      divBowls.appendChild(artikelName);
+      divBowls.appendChild(artikelBeschreibung);
+      divBowls.appendChild(bowlsPreis);
+      divBowls.appendChild(buttonKaufen);
   
       //Überschrift und Container hinzufügen
-      document.getElementById("liste")?.appendChild(artikelZubehör);
-      document.getElementById("liste")?.appendChild(divZubehör);
+      document.getElementById("liste")?.appendChild(artikelBowls);
+      document.getElementById("liste")?.appendChild(divBowls);
   
   
     }
