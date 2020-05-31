@@ -13,6 +13,7 @@ namespace Bowls {
        
     
         
+        
         //div Container für Bowls
         let divBowls: HTMLElement = document.createElement("div");
         divBowls.setAttribute("class", "bowls");
