@@ -54,5 +54,5 @@ var Bowls;
         document.getElementById("liste")?.appendChild(artikelBowls);
     }
     
-})(Aufgabe05 || (Aufgabe05 = {}));
+})(Bowls|| (Bowls = {}));
 //# sourceMappingURL=script.js.map
