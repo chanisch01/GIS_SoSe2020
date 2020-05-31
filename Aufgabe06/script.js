@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe05;
-(function (Aufgabe05) {
+var Bowls;
+(function (Bowls) {
 
 
     for (let i = 0; i < bowls.length; i++) {
