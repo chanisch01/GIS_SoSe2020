@@ -9,10 +9,10 @@ var Bowls;
         let artikelBowls = document.createElement("h2");
         artikelBowls.innerHTML = "Bowls";
         if (i == 0) {
-            artikelZubehör.innerHTML = "Zubehör";
+            artikelBowls.innerHTML = "Bowls";
         }
         else {
-            artikelZubehör.innerHTML = " ";
+            artikelBowls.innerHTML = " ";
         }
         //div Container für Bowls
         let divBowls = document.createElement("div");

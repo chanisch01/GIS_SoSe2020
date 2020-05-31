@@ -12,10 +12,10 @@ namespace Bowls {
         artikelBowls.innerHTML = "Bowls";
        
         if (i == 0) {
-          artikelZubehör.innerHTML = "Zubehör";
+          artikelBowls.innerHTML = "Bowls";
 
       } else {
-          artikelZubehör.innerHTML = " ";
+          artikelBowls.innerHTML = " ";
       }
 
         
