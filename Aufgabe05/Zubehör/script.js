@@ -21,9 +21,6 @@ var Zubehör;
         //Name des Artikels
         let artikelName = document.createElement("h3");
         artikelName.innerHTML = zubehör[i].name;
-        //Beschreibung des Artikel
-        let artikelBeschreibung = document.createElement("h3");
-        artikelBeschreibung.innerHTML = zubehör[i].beschreibung;
         //Preis 
         let zubehörPreis = document.createElement("p");
         zubehörPreis.innerHTML = zubehör[i].preis;
@@ -33,7 +30,6 @@ var Zubehör;
         // Tags werden als child zu div Container hinzugefügt
         divZubehör.appendChild(imgZubehör);
         divZubehör.appendChild(artikelName);
-        divZubehör.appendChild(artikelBeschreibung);
         divZubehör.appendChild(zubehörPreis);
         divZubehör.appendChild(buttonKaufen);
         //Überschrift und Container hinzufügen
