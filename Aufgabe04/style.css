@@ -52,13 +52,6 @@ nav a:hover {
     width: 100px;
 }
 
-
-
- div >img {
-    width: 400px;
-    height:300px;
-}
-
 div p {
     color: grey;
 }
@@ -123,6 +116,8 @@ div button:hover {
     height: 16px;
 }
 
+
+
 /* Desktop */
 @media screen  and (min-width:1024px) {
     nav {
@@ -132,8 +127,12 @@ div button:hover {
 
     div button {
         padding: 5px 7.5px;
-    
     }
+
+    #titelbild {
+        width: 800px;
+    }
+
 
    #logo {
        float: left;
