@@ -165,6 +165,11 @@ div button:hover {
        width: 100px;
    }
 
+   #titelbild {
+    width: 300px;
+}
+
+
 }
 
 
@@ -192,4 +197,9 @@ div button:hover {
             width: 80px;
             margin-top: -10px;
         }
+
+        #titelbild {
+            width: 300px;
+        }
+    
     }
