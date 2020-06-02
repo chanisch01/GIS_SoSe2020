@@ -48,7 +48,7 @@ nav a:hover {
 
 #logo {
     float: left;
-    margin-top: 30px;
+    margin-top: -30px;
     width: 100px;
 }
 
@@ -91,7 +91,6 @@ h2 {
 }
 
 
-
 .preis {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: grey;
@@ -130,11 +129,11 @@ div button:hover {
     height: 16px;
 }
 
-/* Tablet*/
 
-@media all and (min-width: 600px) {
+/* Desktop */
+@media screen  and (min-width:1024px) {
     nav {
-        justify-content: space-evenly;
+        justify-content: space-between;
         display: inline-flex;
     }
 
@@ -144,14 +143,66 @@ div button:hover {
     }
 
     div >img {
-        width: 400px;
-        height: 300px;
+        width: 300px;
     }
+
+   
+   #logo {
+       float: left;
+       margin-top: 30px;
+       width: 100px;
+   }
+   
+   .bowls div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
 }
+
+}
+
+/* IPad */
+
+@media screen  and (min-width: 600px) and (max-width:1024px) {
+    nav {
+        justify-content: space-between;
+        display: inline-flex;
+    }
+
+    div button {
+        padding: 5px 7.5px;
+    
+    }
+
+    div >img {
+        width: 300px;
+    }
+
+   
+   #logo {
+       float: left;
+       margin-top: 30px;
+       width: 100px;
+   }
+   
+   .bowls div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+}
+
 
 /* Smartphones*/
 
- @media all and (max-width: 600px) {
+ @media screen and (max-width: 600px) {
         nav {
             flex-wrap: wrap;
             display: flex;
@@ -164,10 +215,21 @@ div button:hover {
         }
     
         div >img {
-            width: 300px;
+            width: 200px;
+            height: 200px;
         }
         
+        .bowls div{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20px;
+        }
+      
         #logo {
-            margin-top: -30px;
+            width: 80px;
+            margin-top: -10px;
         }
 }    

@@ -29,7 +29,7 @@
   
       //Preis 
       let zubehörPreis: HTMLElement = document.createElement("p");
-      zubehörPreis.innerHTML = zubehör[i].preis;
+      zubehörPreis.innerHTML = zubehör[i].preis + "€";
   
       //Button "Kaufen"
       let buttonKaufen: HTMLElement = document.createElement("button");

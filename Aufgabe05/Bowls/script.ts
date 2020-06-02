@@ -35,7 +35,7 @@ namespace Bowls {
            
         //Preis 
         let bowlsPreis: HTMLElement = document.createElement("p");
-        bowlsPreis.innerHTML = bowls[i].preis;
+        bowlsPreis.innerHTML = bowls[i].preis + "€";
         
         //Button "Kaufen"
         let buttonKaufen: HTMLElement = document.createElement("button");

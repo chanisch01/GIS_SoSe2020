@@ -23,7 +23,7 @@ var Zubehör;
         artikelName.innerHTML = zubehör[i].name;
         //Preis 
         let zubehörPreis = document.createElement("p");
-        zubehörPreis.innerHTML = zubehör[i].preis;
+        zubehörPreis.innerHTML = zubehör[i].preis + "€";
         //Button "Kaufen"
         let buttonKaufen = document.createElement("button");
         buttonKaufen.innerHTML = "Kaufen";
@@ -38,4 +38,3 @@ var Zubehör;
     }
 })(Zubehör || (Zubehör = {}));
 //# sourceMappingURL=data.js.map
-//# sourceMappingURL=script.js.map

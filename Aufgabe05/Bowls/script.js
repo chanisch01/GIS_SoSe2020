@@ -26,7 +26,7 @@ var Bowls;
         artikelBeschreibung.innerHTML = bowls[i].beschreibung;
         //Preis 
         let bowlsPreis = document.createElement("p");
-        bowlsPreis.innerHTML = bowls[i].preis;
+        bowlsPreis.innerHTML = bowls[i].preis + "€";
         //Button "Kaufen"
         let buttonKaufen = document.createElement("button");
         buttonKaufen.innerHTML = "Kaufen";
@@ -42,4 +42,3 @@ var Bowls;
     }
 })(Bowls || (Bowls = {}));
 //# sourceMappingURL=data.js.map
-//# sourceMappingURL=script.js.map
