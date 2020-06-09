@@ -103,6 +103,11 @@ div button:hover {
     font-weight: bolder; 
 }
 
+div >img {
+    width: 400px;
+    height:300px;
+}
+
 #icons {
     list-style: none;
     align-items: center;
@@ -115,6 +120,33 @@ div button:hover {
     width: 16px;
     height: 16px;
 }
+
+.produkte div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+ }
+
+ #titelbild {
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+ h3{
+    color: grey;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    
+}
+
+h3 + p {
+    font-weight: bolder;
+}
+
 
 
 

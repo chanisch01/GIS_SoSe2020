@@ -74,8 +74,23 @@ h2 ~ p  {
     font-weight: bold;
 }
 
+
+h3{
+    color: grey;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    
+}
+
+h3 + p {
+    font-weight: bolder;
+}
+
+
 #titelbild {
     width: 50%;
+    margin-bottom: 50px;
 }
 
 div button:hover {
@@ -95,6 +110,62 @@ div button:hover {
     width: 16px;
     height: 16px;
 }
+
+#blase {
+    background-color: grey;
+    border-radius: 60%;
+    margin-top: 10px;
+    width: 25px;
+    height: 25px;
+    margin-left: -25px;
+}
+
+
+.produkte div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+ }
+
+
+div >img {
+    width: 400px;
+    height:300px;
+}
+
+div p {
+    color: grey;
+}
+
+
+.preis {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: grey;
+}
+
+
+#Überschrift {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: grey;
+    text-align: center;
+}
+
+
+div button {
+    background-color: pink;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 20px;
+    color: grey;
+}
+
+div button:hover {
+    color: grey;
+    font-weight: bolder; 
+}
+
 
 /* Tablet*/
 
