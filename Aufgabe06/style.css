@@ -7,7 +7,6 @@ html {
     background-color: white;
 }
 
-
 nav {
     text-align: center;
     margin-top: 60px ;
@@ -33,6 +32,7 @@ li a {
      padding: 14px 16px;
      text-decoration: none;
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     font-size: 20px;
  }
  
 nav a:hover {
@@ -64,6 +64,7 @@ h2 {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    margin-top: 20px;
 }
 
 h2 ~ p  {
@@ -75,8 +76,7 @@ h3{
     color: grey;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    
+    text-align: center;   
 }
 
 h3 + p {
@@ -92,7 +92,7 @@ h3 + p {
 #icons {
     list-style: none;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 10px;
     display: inline-flex;
 }
 
@@ -109,13 +109,13 @@ h3 + p {
     height:20px;
 }
 
-
-div>img {
-    width: 400px;
-    height:300px;
+div> img {
+    margin-top: 20px;
+    width: 300px;
+    height: 250px;
 }
 
-div p {
+p {
     color: grey;
 }
 
@@ -133,14 +133,15 @@ div p {
 }
 
 
-div button {
-    background-color: pink;
+button {
+    background-color: pink ;
+    color: grey;
+    border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 20px;
-    border: pink;
 }
 
-div button:hover {
+button:hover {
     color: grey;
     font-weight: bolder; 
 }

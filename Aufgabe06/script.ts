@@ -110,7 +110,7 @@ namespace Aufgabe06 {
         kategorie: "zubehoer"
     };
     
-    let angebote: Angebote[] = [bowl1, bowl2, bowl2, bowl3, bowl4, bowl6, zubehoer1, zubehoer2, zubehoer3, zubehoer4, zubehoer5, zubehoer6];
+    let angebote: Angebote[] = [bowl1, bowl2, bowl3, bowl4, bowl5, bowl6, zubehoer1, zubehoer2, zubehoer3, zubehoer4, zubehoer5, zubehoer6];
     
     for (let i: number = 0; i < angebote.length; i++) {
 
@@ -189,31 +189,32 @@ function handleWarenkorb(_event: Event): void {
 
 //Teilaufgabe 2
 
-function handleCategoryClick(this: HTMLElement, _click: MouseEvent): void {
+function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
     switch (this.getAttribute("id")) {
-      case "bowlsAnzeige":
+      case "bowlsButton":
         bowls();
         break;
-      case "zubehoerAnzeige":
+      case "zubehoerButton":
         zubehoer();
         break;
 }
 
     function bowls(): void {
-    (<HTMLElement>document.getElementById("bowls")).style.display = "block";
+    (<HTMLElement>document.getElementById("bowls")).style.display = "inline-grid";
     (<HTMLElement>document.getElementById("zubehoer")).style.display = "none";
 
 }
 
     function zubehoer(): void {
-    (<HTMLElement>document.getElementById("zubehoer")).style.display = "block";
+    (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
     (<HTMLElement>document.getElementById("bowls")).style.display = "none";
     }  
 }
 //neue Variable erstellen und verlinken
-let bowlsButton: HTMLElement = <HTMLElement>document.querySelector("#bowlsAnzeige");
-bowlsButton.addEventListener("click", handleCategoryClick.bind(bowlsButton));
 
-let zubehoerButton: HTMLElement = <HTMLElement>document.querySelector("#zubehoerAnzeige");
-zubehoerButton.addEventListener("click", handleCategoryClick.bind(zubehoerButton));
-   
+let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsButton");
+bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
+
+let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
+zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
+
