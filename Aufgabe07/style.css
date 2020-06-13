@@ -146,6 +146,14 @@ button:hover {
     font-weight: bolder; 
 }
 
+#warenkorbUeberschrift {
+    margin-top:10px;
+    margin-left: 200px;
+    float: left;
+  
+}
+
+
 
 /* Desktop */
 @media screen  and (min-width:1024px) {
