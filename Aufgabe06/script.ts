@@ -111,6 +111,9 @@ namespace Aufgabe06 {
     };
     
     let angebote: Angebote[] = [bowl1, bowl2, bowl3, bowl4, bowl5, bowl6, zubehoer1, zubehoer2, zubehoer3, zubehoer4, zubehoer5, zubehoer6];
+
+
+    
     
     for (let i: number = 0; i < angebote.length; i++) {
 
