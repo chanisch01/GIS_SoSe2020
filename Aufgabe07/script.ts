@@ -1,8 +1,8 @@
-
 namespace Aufgabe07 {
 
-    let gesamtPreis: number = 0;
+
     let produktZaehler: number = 0;
+    let gesamtPreis: number = 0;
 
     let warenkorb: HTMLDivElement = document.createElement("div");
 
@@ -10,17 +10,16 @@ namespace Aufgabe07 {
     window.addEventListener("load", init);
 
     export interface Angebote {
-        img: string;
+        bild: string;
         name: string;
         beschreibung: string;
         preis: number;
         kategorie: string;
     }
-
+  
     function init(): void {
         let url: string = "data.json";
         communicate(url);
-
     }
 
     async function communicate(_url: RequestInfo): Promise<void> {
@@ -32,25 +31,29 @@ namespace Aufgabe07 {
         artikelErzeugen();
     }
 
+    function saveInLocalStorage(_inputArticle: Angebote): void {
+        let itemString: string = JSON.stringify(_inputArticle);
+        let key: string = "" + _inputArticle.name;
 
+        localStorage.setItem(key, itemString);
+        console.log(localStorage);
+    }
+
+  
     function artikelErzeugen(): void {
         for (let i: number = 0; i < angebote.length; i++) {
-
-            //div erstellen
-
+            //div erstellen 
             let newDiv: HTMLDivElement = document.createElement("div");
             newDiv.id = "produkt" + i;
             document.getElementById("bowls")?.appendChild(newDiv);
 
 
             //Bild anlegen
-
             let imgAngebote: HTMLImageElement = document.createElement("img");
-            imgAngebote.src = angebote[i].img;
+            imgAngebote.src = angebote[i].bild;
             document.getElementById("produkt" + i)?.appendChild(imgAngebote);
 
             //Name anlegen 
-
             let nameAngebote: HTMLParagraphElement = document.createElement("p");
             nameAngebote.innerHTML = angebote[i].name;
             document.getElementById("produkt" + i)?.appendChild(nameAngebote);
@@ -60,7 +63,6 @@ namespace Aufgabe07 {
             document.getElementById("produkt" + i)?.appendChild(preisAngebote);
 
             //Beschreibung anlegen 
-
             let beschreibungAngebote: HTMLParagraphElement = document.createElement("p");
             beschreibungAngebote.innerHTML = angebote[i].beschreibung;
             document.getElementById("produkt" + i)?.appendChild(beschreibungAngebote);
@@ -87,56 +89,61 @@ namespace Aufgabe07 {
                     break;
                 default:
                     break;
+
             }
         }
-
-        //Teilaufgabe 1
-
-
-        function handleWarenkorb(_event: Event): void {
-            if (produktZaehler >= 0) {
-                document.getElementById("warenkorbZaehler")?.appendChild(warenkorb);
-            }
-            produktZaehler++;
-            warenkorb.innerHTML = produktZaehler + "";
-
-
-            gesamtPreis += parseFloat((<HTMLButtonElement>_event.target)?.getAttribute("preis")!);
-
-            console.log(gesamtPreis);
-
-
-        }
-
-        //Teilaufgabe 2
-
-        function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
-            switch (this.getAttribute("id")) {
-                case "bowlsButton":
-                    bowls();
-                    break;
-                case "zubehoerButton":
-                    zubehoer();
-                    break;
-            }
-
-            function bowls(): void {
-                (<HTMLElement>document.getElementById("bowls")).style.display = "inline-grid";
-                (<HTMLElement>document.getElementById("zubehoer")).style.display = "none";
-
-            }
-
-            function zubehoer(): void {
-                (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
-                (<HTMLElement>document.getElementById("bowls")).style.display = "none";
-            }
-        }
-
-        let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsButton");
-        bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
-
-        let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
-        zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
-
     }
+
+
+    //Teilaufgabe 1
+
+
+    function handleWarenkorb(_event: Event): void {
+        if (produktZaehler >= 0) {
+            document.getElementById("warenkorbZaehler")?.appendChild(warenkorb);
+            warenkorb.innerHTML = "" + produktZaehler;
+            document.getElementById("anzahlAnzeigen")?.appendChild(warenkorb);
+        }
+
+        produktZaehler++;
+        warenkorb.innerHTML = produktZaehler + "";
+        console.log(produktZaehler);
+
+
+        saveInLocalStorage(this);
+        gesamtPreis += parseFloat((<HTMLButtonElement>_event.target)?.getAttribute("preis")!);
+        console.log(gesamtPreis.toFixed(2));
+ }
+
+
+    //Teilaufgabe 2
+
+    function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
+        switch (this.getAttribute("id")) {
+            case "bowlsButton":
+                bowls();
+                break;
+            case "zubehoerButton":
+                zubehoer();
+                break;
+        }
+
+        function bowls(): void {
+            (<HTMLElement>document.getElementById("bowls")).style.display = "inline-grid";
+            (<HTMLElement>document.getElementById("zubehoer")).style.display = "none";
+
+        }
+
+        function zubehoer(): void {
+            (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
+            (<HTMLElement>document.getElementById("bowls")).style.display = "none";
+        }
+    }
+    //neue Variable erstellen und verlinken
+
+    let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsButton");
+    bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
+
+    let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
+    zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
 }
