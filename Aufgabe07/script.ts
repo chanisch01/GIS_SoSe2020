@@ -1,3 +1,4 @@
+
 namespace Aufgabe07 {
 
     let gesamtPreis: number = 0;
