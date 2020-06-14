@@ -112,18 +112,16 @@ namespace Aufgabe06 {
     
     let angebote: Angebote[] = [bowl1, bowl2, bowl3, bowl4, bowl5, bowl6, zubehoer1, zubehoer2, zubehoer3, zubehoer4, zubehoer5, zubehoer6];
 
-
-    
     
     for (let i: number = 0; i < angebote.length; i++) {
 
-         //div erstellen und anlegen um drauf zugreifen zu können 
+         //div erstellen 
          let newDiv: HTMLDivElement = document.createElement("div");
          newDiv.id = "produkt" + i;
          document.getElementById("bowls")?.appendChild(newDiv);
  
  
-         //Bild anlegen um es zu erkennen 
+         //Bild anlegen
          let imgAngebote: HTMLImageElement = document.createElement("img");
          imgAngebote.src = angebote[i].bild;
          document.getElementById("produkt" + i)?.appendChild(imgAngebote);
@@ -220,4 +218,3 @@ bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen))
 
 let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
 zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
-
