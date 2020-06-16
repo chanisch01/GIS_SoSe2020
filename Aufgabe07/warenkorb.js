@@ -34,7 +34,7 @@ var Aufgabe07;
         //IMG IN DIV PACKEN
         let imgAngebote = document.createElement("img");
         imgAngebote.src = _inputArticle.img;
-        document.getElementById("bowls")?.appendChild(imgAngebote);
+        document.getElementById("produkt")?.appendChild(imgAngebote);
         console.log(imgAngebote);
         //NAME
         let name = document.createElement("p");
