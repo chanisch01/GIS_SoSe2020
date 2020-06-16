@@ -1,10 +1,12 @@
 namespace Aufgabe07 {
 
 
-    let produktZaehler: number = 0;
-    let gesamtPreis: number = 0;
+    let produktZähler: number = 0;
+    let preisBerechnen: number = 0;
 
-    let warenkorb: HTMLDivElement = document.createElement("div");
+    let zahlAnzeigen: HTMLParagraphElement = document.createElement("p");
+    let anzahlAnzeigen: HTMLDivElement = document.createElement("div");
+    anzahlAnzeigen.id = "anzahlAnzeigen";
 
     let angebote: Angebote[] = [];
     window.addEventListener("load", init);
@@ -14,9 +16,9 @@ namespace Aufgabe07 {
         name: string;
         beschreibung: string;
         preis: number;
-        kategorie: string;
+        kategorien: string;
     }
-  
+
     function init(): void {
         let url: string = "data.json";
         communicate(url);
@@ -39,16 +41,16 @@ namespace Aufgabe07 {
         console.log(localStorage);
     }
 
-  
+    //Produkte einschleifen
     function artikelErzeugen(): void {
         for (let i: number = 0; i < angebote.length; i++) {
-            //div erstellen 
+
+            //Div
             let newDiv: HTMLDivElement = document.createElement("div");
             newDiv.id = "produkt" + i;
             document.getElementById("bowls")?.appendChild(newDiv);
 
-
-            //Bild anlegen
+            //Bild
             let imgAngebote: HTMLImageElement = document.createElement("img");
             imgAngebote.src = angebote[i].bild;
             document.getElementById("produkt" + i)?.appendChild(imgAngebote);
@@ -67,17 +69,16 @@ namespace Aufgabe07 {
             beschreibungAngebote.innerHTML = angebote[i].beschreibung;
             document.getElementById("produkt" + i)?.appendChild(beschreibungAngebote);
 
-
             //Button
 
             let kaufen: HTMLButtonElement = document.createElement("button");
             kaufen.innerHTML = "In den Warenkorb";
             document.getElementById("produkt" + i)?.appendChild(kaufen);
-            kaufen.addEventListener("click", handleWarenkorb);
+            kaufen.addEventListener("click", handleWarenkorb.bind(angebote[i]));
             kaufen.setAttribute("preis", angebote[i].preis.toString());
 
 
-            switch (angebote[i].kategorie) {
+            switch (angebote[i].kategorien) {
                 case "bowls":
                     let getContainerBowls: HTMLElement = document.getElementById("bowls")!;
                     getContainerBowls.appendChild(newDiv);
@@ -92,58 +93,59 @@ namespace Aufgabe07 {
 
             }
         }
+
+        //Teilaufgabe 1:
+
+        function handleWarenkorb(this: Angebote, _event: Event): void {
+
+            produktZähler++;
+            console.log(produktZähler);
+
+            saveInLocalStorage(this);
+            preisBerechnen += parseFloat((<HTMLButtonElement>_event.target)?.getAttribute("preis")!);
+            console.log(preisBerechnen.toFixed(2));
+
+
+            if (produktZähler == 1) {
+                document.getElementById("wagenkorbZaehler")?.appendChild(anzahlAnzeigen);
+            }
+            anzahlAnzeigen.innerHTML = "" + produktZähler;
+            document.getElementById("anzahlAnzeigen")?.appendChild(zahlAnzeigen);
+
+        }
+
+
+        //Ein-/Ausblenden der Produkte
+
+        function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
+
+            switch (this.getAttribute("id")) {
+                case "bowlsButton":
+                    bowls();
+                    break;
+                case "zubehoerButton":
+                    zubehoer();
+                    break;
+            }
+
+            function bowls(): void {
+                (<HTMLElement>document.getElementById("bowls")).style.display = "inline-grid";
+                (<HTMLElement>document.getElementById("zubehoer")).style.display = "none";
+
+            }
+
+            function zubehoer(): void {
+                (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
+                (<HTMLElement>document.getElementById("bowls")).style.display = "none";
+
+            }
+
+        }
+        let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowls");
+        bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
+
+        let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoer");
+        zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
+
     }
-
-
-    //Teilaufgabe 1
-
-
-    function handleWarenkorb(_event: Event): void {
-        if (produktZaehler >= 0) {
-            document.getElementById("warenkorbZaehler")?.appendChild(warenkorb);
-            warenkorb.innerHTML = "" + produktZaehler;
-            document.getElementById("anzahlAnzeigen")?.appendChild(warenkorb);
-        }
-
-        produktZaehler++;
-        warenkorb.innerHTML = produktZaehler + "";
-        console.log(produktZaehler);
-
-
-        saveInLocalStorage(this);
-        gesamtPreis += parseFloat((<HTMLButtonElement>_event.target)?.getAttribute("preis")!);
-        console.log(gesamtPreis.toFixed(2));
- }
-
-
-    //Teilaufgabe 2
-
-    function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
-        switch (this.getAttribute("id")) {
-            case "bowlsButton":
-                bowls();
-                break;
-            case "zubehoerButton":
-                zubehoer();
-                break;
-        }
-
-        function bowls(): void {
-            (<HTMLElement>document.getElementById("bowls")).style.display = "inline-grid";
-            (<HTMLElement>document.getElementById("zubehoer")).style.display = "none";
-
-        }
-
-        function zubehoer(): void {
-            (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
-            (<HTMLElement>document.getElementById("bowls")).style.display = "none";
-        }
-    }
-    //neue Variable erstellen und verlinken
-
-    let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsButton");
-    bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
-
-    let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
-    zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
 }
