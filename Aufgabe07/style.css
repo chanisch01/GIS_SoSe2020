@@ -153,7 +153,24 @@ button:hover {
   
 }
 
+#total{
+    font-size: 20px;
+    font-weight: bold;
+}
 
+.warenliste div{
+    border: 2px solid rgb(139, 43, 176);
+    box-shadow: 0pt 2px 5px rgba(62, 163, 199, 0.7);
+    max-width: 450px;
+    max-height: 450px;
+    display: inline-block;
+    background: transparent;
+    padding: 40px 150px 40px 150px;
+    margin: 0px 30px 30px 40px;
+    text-align: center;
+
+
+}
 
 /* Desktop */
 @media screen  and (min-width:1024px) {

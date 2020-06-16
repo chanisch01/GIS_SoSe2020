@@ -12,6 +12,7 @@ namespace Aufgabe07 {
     window.addEventListener("load", init);
 
     export interface Angebote {
+        img: string;
         bild: string;
         name: string;
         beschreibung: string;
