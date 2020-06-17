@@ -19,7 +19,7 @@ namespace Aufgabe07 {
     }
 
     function init(): void {
-        let url: string = "data.json";
+        let url: string = "angebote.json";
         communicate(url);
     }
 

@@ -9,7 +9,7 @@ var Aufgabe07;
     let angebote = [];
     window.addEventListener("load", init);
     function init() {
-        let url = "data.json";
+        let url = "angebote.json";
         communicate(url);
     }
     async function communicate(_url) {
