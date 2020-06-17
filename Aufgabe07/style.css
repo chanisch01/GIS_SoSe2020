@@ -190,12 +190,6 @@ button:hover {
 
 }
 
-/*Button*/
-#kategorie1 input, #kategorie2 input{
-    width: max-content;
-    border-radius: 0px;
-    color: pink;
-}
 
 /* Desktop */
 @media screen  and (min-width:1024px) {
