@@ -1,6 +1,4 @@
-
 namespace Aufgabe07 {
-
 
     let produktZähler: number = 0;
     let preisBerechnen: number = 0;
@@ -14,11 +12,10 @@ namespace Aufgabe07 {
 
     export interface Angebote {
         img: string;
-        bild: string;
         name: string;
         beschreibung: string;
         preis: number;
-        kategorien: string;
+        kategorie: number;
     }
 
     function init(): void {
@@ -31,74 +28,88 @@ namespace Aufgabe07 {
         let response: Response = await fetch(_url);
         console.log("Response", response);
         angebote = await response.json();
-        console.log("End");
+        console.log("Ende");
         artikelErzeugen();
+    }
 
-        function saveInLocalStorage(_inputArticle: Angebote): void {
-            let itemString: string = JSON.stringify(_inputArticle);
-            let key: string = "" + _inputArticle.name;
+    function saveInLocalStorage(_inputAngebote: Angebote): void {
+        let itemString: string = JSON.stringify(_inputAngebote);
+        let key: string = "" + _inputAngebote.name;
 
-            localStorage.setItem(key, itemString);
-            console.log(localStorage);
-        }
+        localStorage.setItem(key, itemString);
+        console.log(localStorage);
+    }
 
-        //Produkte einschleifen
-        function artikelErzeugen(): void {
-            for (let i: number = 0; i < angebote.length; i++) {
+    function artikelErzeugen(): void {
 
-                //Div
-                let newDiv: HTMLDivElement = document.createElement("div");
-                newDiv.id = "produkt" + i;
-                document.getElementById("bowls")?.appendChild(newDiv);
+        for (let i: number = 0; i < angebote.length; i++) {
 
-                //Bild
-                let imgAngebote: HTMLImageElement = document.createElement("img");
-                imgAngebote.src = angebote[i].bild;
-                document.getElementById("produkt" + i)?.appendChild(imgAngebote);
+            //Div
+            let divBowls: HTMLElement = document.createElement("div");
+            divBowls.setAttribute("class", "Produkte");
 
-                //Name anlegen 
-                let nameAngebote: HTMLParagraphElement = document.createElement("p");
-                nameAngebote.innerHTML = angebote[i].name;
-                document.getElementById("produkt" + i)?.appendChild(nameAngebote);
+            //Bild
+            let imgBowls: HTMLElement = document.createElement("img");
+            imgBowls.setAttribute("src", angebote[i].img);
 
-                let preisAngebote: HTMLParagraphElement = document.createElement("p");
-                preisAngebote.innerHTML = angebote[i].preis + "€";
-                document.getElementById("produkt" + i)?.appendChild(preisAngebote);
+            //Name
+            let bowlsName: HTMLElement = document.createElement("h2");
+            bowlsName.innerHTML = angebote[i].name;
 
-                //Beschreibung anlegen 
-                let beschreibungAngebote: HTMLParagraphElement = document.createElement("p");
-                beschreibungAngebote.innerHTML = angebote[i].beschreibung;
-                document.getElementById("produkt" + i)?.appendChild(beschreibungAngebote);
+            //Beschreibung
+            let bowlsBeschreibung: HTMLElement = document.createElement("p");
+            bowlsBeschreibung.innerHTML = angebote[i].beschreibung;
 
-                //Button
-
-                let kaufen: HTMLButtonElement = document.createElement("button");
-                kaufen.innerHTML = "In den Warenkorb";
-                document.getElementById("produkt" + i)?.appendChild(kaufen);
-                kaufen.addEventListener("click", handleWarenkorb.bind(angebote[i]));
-                kaufen.setAttribute("preis", angebote[i].preis.toString());
+            //Preis
+            let bowlsPreis: HTMLElement = document.createElement("h3");
+            bowlsPreis.innerHTML = angebote[i].preis + "€";
 
 
-                switch (angebote[i].kategorien) {
-                    case "bowls":
-                        let getContainerBowls: HTMLElement = document.getElementById("bowls")!;
-                        getContainerBowls.appendChild(newDiv);
-                        break;
+            //Button
+            let button: HTMLInputElement = document.createElement("input");
+            button.innerHTML = "Jetzt kaufen";
+            button.type = "button";
+            button.value = "Kaufen";
+            bowlsPreis.appendChild(button);
 
-                    case "zubehoer":
-                        let getContainerZubehoer: HTMLElement = document.getElementById("zubehoer")!;
-                        getContainerZubehoer.appendChild(newDiv);
-                        break;
-                    default:
-                        break;
+            //button.addEventListener("click", handleAdd);
+            button.addEventListener("click", kaufenButton.bind(angebote[i]));
+            button.setAttribute("preis", angebote[i].preis.toString());
 
-                }
+            //"Button" in Warenkorb
+            button.setAttribute("name", angebote[i].name);
+            button.setAttribute("img", angebote[i].img);
+            button.setAttribute("beschreibung", angebote[i].beschreibung);
+            button.setAttribute("kategorie", angebote[i].kategorie.toString());
+
+            document.getElementById("_angebote" + i)?.appendChild(button);
+            document.getElementById("_angebote" + i)?.appendChild(button);
+
+
+            // Alle Tags zu div Container
+            divBowls.appendChild(imgBowls);
+            divBowls.appendChild(bowlsName);
+            divBowls.appendChild(bowlsPreis);
+            divBowls.appendChild(bowlsBeschreibung);
+            divBowls.appendChild(button);
+
+            switch (angebote[i].kategorie) {
+                case 1:
+                    let getContainer1: HTMLElement = document.getElementById("bowls")!;
+                    getContainer1.appendChild(divBowls);
+                    break;
+                case 2:
+                    let getContainer2: HTMLElement = document.getElementById("zubehoer")!;
+                    getContainer2.appendChild(divBowls);
+                    break;
+                default:
+                    break;
             }
 
             //Teilaufgabe 1:
 
-            function handleWarenkorb(this: Angebote, _event: Event): void {
 
+            function kaufenButton(this: Angebote, _event: Event): void {
                 produktZähler++;
                 console.log(produktZähler);
 
@@ -108,7 +119,7 @@ namespace Aufgabe07 {
 
 
                 if (produktZähler == 1) {
-                    document.getElementById("wagenkorbZaehler")?.appendChild(anzahlAnzeigen);
+                    document.getElementById("warenkorbZaehler")?.appendChild(anzahlAnzeigen);
                 }
                 anzahlAnzeigen.innerHTML = "" + produktZähler;
                 document.getElementById("anzahlAnzeigen")?.appendChild(zahlAnzeigen);
@@ -116,18 +127,19 @@ namespace Aufgabe07 {
             }
 
 
-            //Ein-/Ausblenden der Produkte
+            //Teilaufgabe 2:
 
             function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
-
                 switch (this.getAttribute("id")) {
-                    case "bowlsButton":
+                    case "bowlsB":
                         bowls();
                         break;
-                    case "zubehoerButton":
+                    case "zubehoerB":
                         zubehoer();
                         break;
                 }
+
+
 
                 function bowls(): void {
                     (<HTMLElement>document.getElementById("bowls")).style.display = "inline-grid";
@@ -139,14 +151,16 @@ namespace Aufgabe07 {
                     (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
                     (<HTMLElement>document.getElementById("bowls")).style.display = "none";
 
+
                 }
 
             }
-            let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowls");
+            let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsB");
             bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
 
-            let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoer");
+            let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerB");
             zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
+
 
         }
     }

@@ -17,75 +17,86 @@ var Aufgabe07;
         let response = await fetch(_url);
         console.log("Response", response);
         angebote = await response.json();
-        console.log("End");
+        console.log("Ende");
         artikelErzeugen();
-        function saveInLocalStorage(_inputArticle) {
-            let itemString = JSON.stringify(_inputArticle);
-            let key = "" + _inputArticle.name;
-            localStorage.setItem(key, itemString);
-            console.log(localStorage);
-        }
-        //Produkte einschleifen
-        function artikelErzeugen() {
-            for (let i = 0; i < angebote.length; i++) {
-                //Div
-                let newDiv = document.createElement("div");
-                newDiv.id = "produkt" + i;
-                document.getElementById("bowls")?.appendChild(newDiv);
-                //Bild
-                let imgAngebote = document.createElement("img");
-                imgAngebote.src = angebote[i].bild;
-                document.getElementById("produkt" + i)?.appendChild(imgAngebote);
-                //Name anlegen 
-                let nameAngebote = document.createElement("p");
-                nameAngebote.innerHTML = angebote[i].name;
-                document.getElementById("produkt" + i)?.appendChild(nameAngebote);
-                let preisAngebote = document.createElement("p");
-                preisAngebote.innerHTML = angebote[i].preis + "€";
-                document.getElementById("produkt" + i)?.appendChild(preisAngebote);
-                //Beschreibung anlegen 
-                let beschreibungAngebote = document.createElement("p");
-                beschreibungAngebote.innerHTML = angebote[i].beschreibung;
-                document.getElementById("produkt" + i)?.appendChild(beschreibungAngebote);
-                //Button
-                let kaufen = document.createElement("button");
-                kaufen.innerHTML = "In den Warenkorb";
-                document.getElementById("produkt" + i)?.appendChild(kaufen);
-                kaufen.addEventListener("click", handleWarenkorb.bind(angebote[i]));
-                kaufen.setAttribute("preis", angebote[i].preis.toString());
-                switch (angebote[i].kategorien) {
-                    case "bowls":
-                        let getContainerBowls = document.getElementById("bowls");
-                        getContainerBowls.appendChild(newDiv);
-                        break;
-                    case "zubehoer":
-                        let getContainerZubehoer = document.getElementById("zubehoer");
-                        getContainerZubehoer.appendChild(newDiv);
-                        break;
-                    default:
-                        break;
-                }
+    }
+    function saveInLocalStorage(_inputAngebote) {
+        let itemString = JSON.stringify(_inputAngebote);
+        let key = "" + _inputAngebote.name;
+        localStorage.setItem(key, itemString);
+        console.log(localStorage);
+    }
+    function artikelErzeugen() {
+        for (let i = 0; i < angebote.length; i++) {
+            //Div
+            let divBowls = document.createElement("div");
+            divBowls.setAttribute("class", "Produkte");
+            //Bild
+            let imgBowls = document.createElement("img");
+            imgBowls.setAttribute("src", angebote[i].img);
+            //Name
+            let bowlsName = document.createElement("h2");
+            bowlsName.innerHTML = angebote[i].name;
+            //Beschreibung
+            let bowlsBeschreibung = document.createElement("p");
+            bowlsBeschreibung.innerHTML = angebote[i].beschreibung;
+            //Preis
+            let bowlsPreis = document.createElement("h3");
+            bowlsPreis.innerHTML = angebote[i].preis + "€";
+            //Button
+            let button = document.createElement("input");
+            button.innerHTML = "Jetzt kaufen";
+            button.type = "button";
+            button.value = "Kaufen";
+            bowlsPreis.appendChild(button);
+            //button.addEventListener("click", handleAdd);
+            button.addEventListener("click", kaufenButton.bind(angebote[i]));
+            button.setAttribute("preis", angebote[i].preis.toString());
+            //"Button" in Warenkorb
+            button.setAttribute("name", angebote[i].name);
+            button.setAttribute("img", angebote[i].img);
+            button.setAttribute("beschreibung", angebote[i].beschreibung);
+            button.setAttribute("kategorie", angebote[i].kategorie.toString());
+            document.getElementById("_angebote" + i)?.appendChild(button);
+            document.getElementById("_angebote" + i)?.appendChild(button);
+            // Alle Tags zu div Container
+            divBowls.appendChild(imgBowls);
+            divBowls.appendChild(bowlsName);
+            divBowls.appendChild(bowlsPreis);
+            divBowls.appendChild(bowlsBeschreibung);
+            divBowls.appendChild(button);
+            switch (angebote[i].kategorie) {
+                case 1:
+                    let getContainer1 = document.getElementById("bowls");
+                    getContainer1.appendChild(divBowls);
+                    break;
+                case 2:
+                    let getContainer2 = document.getElementById("zubehoer");
+                    getContainer2.appendChild(divBowls);
+                    break;
+                default:
+                    break;
             }
             //Teilaufgabe 1:
-            function handleWarenkorb(_event) {
+            function kaufenButton(_event) {
                 produktZähler++;
                 console.log(produktZähler);
                 saveInLocalStorage(this);
                 preisBerechnen += parseFloat(_event.target?.getAttribute("preis"));
                 console.log(preisBerechnen.toFixed(2));
                 if (produktZähler == 1) {
-                    document.getElementById("wagenkorbZaehler")?.appendChild(anzahlAnzeigen);
+                    document.getElementById("warenkorbZaehler")?.appendChild(anzahlAnzeigen);
                 }
                 anzahlAnzeigen.innerHTML = "" + produktZähler;
                 document.getElementById("anzahlAnzeigen")?.appendChild(zahlAnzeigen);
             }
-            //Ein-/Ausblenden der Produkte
+            //Teilaufgabe 2:
             function handleCategoryClick(_click) {
                 switch (this.getAttribute("id")) {
-                    case "bowlsButton":
+                    case "bowlsB":
                         bowls();
                         break;
-                    case "zubehoerButton":
+                    case "zubehoerB":
                         zubehoer();
                         break;
                 }
@@ -98,9 +109,9 @@ var Aufgabe07;
                     document.getElementById("bowls").style.display = "none";
                 }
             }
-            let bowlsAnzeigen = document.querySelector("#bowls");
+            let bowlsAnzeigen = document.querySelector("#bowlsB");
             bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
-            let zubehoerAnzeigen = document.querySelector("#zubehoer");
+            let zubehoerAnzeigen = document.querySelector("#zubehoerB");
             zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
         }
     }
