@@ -7,7 +7,7 @@ namespace Aufgabe07 {
     let gesamtPreis: number;
 
     function init(_event: Event): void {
-        contentDiv = <HTMLDivElement>document.querySelector("#warenliste");
+        contentDiv = <HTMLDivElement>document.querySelector(".warenliste");
         pGesamtpreis = <HTMLParagraphElement>document.querySelector("#total");
         pGesamtpreis.addEventListener("click", handleRemoveAll);
         document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
@@ -19,60 +19,56 @@ namespace Aufgabe07 {
     function update(): void {
         contentDiv.innerHTML = "";
         gesamtPreis = 0;
-        for (let i: number = 0; i < localStorage.length; i++) {
-            let key: string = <string>localStorage.key(i);
-            let angeboteJson: string = <string>localStorage.getItem(key);
+        for (let index: number = 0; index < localStorage.length; index++) {
+            let key: string = <string>localStorage.key(index);
+            let angebotejson: string = <string>localStorage.getItem(key);
 
-            let item: Angebote = <Angebote>JSON.parse(angeboteJson);
+            let item: Angebote = <Angebote>JSON.parse(angebotejson);
 
             gesamtPreis += item.preis;
-            createDynamicContent(item);
+            erstelleInhalt(item);
         }
         setGesamtpreis();
     }
 
-    function createDynamicContent(_inputAngebote: Angebote): void {
-
+ 
+    function erstelleInhalt(_inputAngebote: Angebote): void {
+       
         //Div erstellen
-
+      
         let newDiv: HTMLDivElement = document.createElement("div");
         contentDiv.appendChild(newDiv);
         newDiv.id = _inputAngebote.name;
         console.log(newDiv.id);
-
-        //Bild
-
-        let imgAngebote: HTMLImageElement = document.createElement("img");
-        imgAngebote.src = _inputAngebote.img;
-        newDiv.appendChild(imgAngebote);
-        console.log(imgAngebote);
-
+        
+        //Bild 
+        
+        let imgElement: HTMLImageElement = document.createElement("img");
+        newDiv.appendChild(imgElement);
+        imgElement.src = _inputAngebote.img;
+        console.log(imgElement);
+        
         //Name
-
+        
         let name: HTMLParagraphElement = document.createElement("p");
-        name.innerHTML = _inputAngebote.name;
         newDiv.appendChild(name);
+        name.innerHTML = _inputAngebote.name;
 
-        //Beschreibung
-
-        let beschreibungAngebote: HTMLParagraphElement = document.createElement("p");
-        beschreibungAngebote.innerHTML = _inputAngebote.beschreibung;
-        newDiv.appendChild(beschreibungAngebote);
-
-        //Preis
-
+        //Preis 
+    
         let price: HTMLParagraphElement = document.createElement("p");
+        newDiv.appendChild(price);
         price.innerHTML = "" + _inputAngebote.preis;
         newDiv.setAttribute("preis", price.innerHTML);
-        newDiv.appendChild(price);
-
+        
         //Button
-
-        let kaufen: HTMLButtonElement = document.createElement("button");
-        kaufen.innerHTML = "Löschen";
+       
+        let kaufen: HTMLButtonElement  = document.createElement("button");
         newDiv.appendChild(kaufen);
+        kaufen.innerHTML = "Löschen";
         kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
     }
+
 
     function handleRemoveArticle(this: Angebote, _event: Event): void {
         localStorage.removeItem(this.name);
@@ -80,8 +76,9 @@ namespace Aufgabe07 {
     }
 
     function setGesamtpreis(): void {
-        pGesamtpreis.innerHTML = "" + gesamtPreis.toFixed(2);
+        pGesamtpreis.innerHTML = "" + gesamtPreis;
     }
+
 
     function handleRemoveAll(_event: Event): void {
         localStorage.clear();
