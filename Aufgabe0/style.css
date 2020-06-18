@@ -166,6 +166,8 @@ button:hover {
 .warenliste {
     border: 1px solid grey;
     align-items: center;
+    display: inline-grid;
+    position: center;
 }
 
 
