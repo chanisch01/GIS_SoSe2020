@@ -48,6 +48,7 @@ var Aufgabe07;
         //Button
         let kaufen = document.createElement("button");
         newDiv.appendChild(kaufen);
+        kaufen.innerHTML = "Löschen";
         kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
     }
     function handleRemoveArticle(_event) {
