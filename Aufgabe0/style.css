@@ -136,8 +136,7 @@ div>button {
     margin-bottom: 20px;
 }
 
-#kategoriebowls:hover, 
-#kategoriezubehoer:hover {
+button:hover {
     color: grey;
     font-weight: bolder; 
 }
@@ -161,17 +160,11 @@ div>button {
     align-items: center;
 }
 
-#kategoriebowls div,
-#kategoriezubehoer div{
+.angebote {
 
     max-width: 500px;
     max-height: 400px;
     text-align: center;
-}
-
-.Container{
-    display: flex;
-    flex-wrap: auto;
 }
 
 div>img {
