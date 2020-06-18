@@ -164,7 +164,7 @@ p {
 }
 
 .warenliste {
-    border: 2px solid grey(139, 43, 176);
+    border: 2px solid grey;
     max-width: 500px;
     max-height: 400px;
     align-items: center;
