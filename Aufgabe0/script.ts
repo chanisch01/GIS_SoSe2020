@@ -72,7 +72,7 @@ namespace Aufgabe07 {
             //Button
 
             let kaufen: HTMLButtonElement = document.createElement("button");
-            kaufen.innerHTML = "In den Warenkorb";
+            kaufen.innerHTML = "Kaufen";
             document.getElementById("produkt" + i)?.appendChild(kaufen);
             kaufen.addEventListener("click", kaufenButton.bind(angebote[i]));
             kaufen.setAttribute("preis", angebote[i].preis.toString());
