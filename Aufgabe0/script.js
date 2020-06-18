@@ -46,22 +46,17 @@ var Aufgabe07;
             let preisAngebote = document.createElement("p");
             preisAngebote.innerHTML = angebote[i].preis + "€";
             document.getElementById("produkt" + i)?.appendChild(preisAngebote);
-            //Button
-            let button = document.createElement("input");
-            button.innerHTML = "Jetzt kaufen";
-            button.type = "button";
-            button.value = "Kaufen";
-            preisAngebote.appendChild(button);
-            //button.addEventListener("click", handleAdd);
-            button.addEventListener("click", kaufenButton.bind(angebote[i]));
-            button.setAttribute("preis", angebote[i].preis.toString());
+            //Button 
+            let newButton = document.createElement("button");
+            newButton.innerHTML = "kaufen";
+            newButton.addEventListener("click", kaufenButton.bind(angebote[i]));
+            newButton.setAttribute("preis", angebote[i].preis.toString());
+            document.getElementById("Angebote" + i)?.appendChild(newButton);
             //"Button" in Warenkorb
-            button.setAttribute("name", angebote[i].name);
-            button.setAttribute("img", angebote[i].img);
-            button.setAttribute("beschreibung", angebote[i].beschreibung);
-            button.setAttribute("kategorien", angebote[i].kategorie.toString());
-            document.getElementById("_angebote" + i)?.appendChild(button);
-            document.getElementById("_angebote" + i)?.appendChild(button);
+            newButton.setAttribute("name", angebote[i].name);
+            newButton.setAttribute("img", angebote[i].img);
+            newButton.setAttribute("beschreibung", angebote[i].beschreibung);
+            newButton.setAttribute("kategorie", angebote[i].kategorie);
             switch (angebote[i].kategorie) {
                 case "bowls":
                     let getContainerBowls = document.getElementById("bowls");
