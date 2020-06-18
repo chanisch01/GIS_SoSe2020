@@ -70,20 +70,15 @@ namespace Aufgabe07 {
             document.getElementById("produkt" + i)?.appendChild(preisAngebote);
 
             //Button
-            let kaufen: HTMLButtonElement = document.createElement("button");
-            kaufen.innerHTML = "Kaufen";
-            kaufen.type = "button";
-            kaufen.value = "Kaufen";
-            preisAngebote.appendChild(kaufen);
+            let newButton: HTMLButtonElement = document.createElement("button");
+            newButton.innerHTML = "Kaufen";
+            newButton.addEventListener("click", kaufenButton.bind(angebote[i]));
+            newButton.setAttribute("preis", angebote[i].preis.toString());
 
-            kaufen.addEventListener("click", kaufenButton.bind(angebote[i]));
-            kaufen.setAttribute("preis", angebote[i].preis.toString());
-
-            kaufen.setAttribute("name", angebote[i].name);
-            kaufen.setAttribute("img", angebote[i].img);
-            kaufen.setAttribute("beschreibung", angebote[i].beschreibung);
-            kaufen.setAttribute("kategorie", angebote[i].kategorie.toString());
-
+            newButton.setAttribute("name", angebote[i].name);
+            newButton.setAttribute("img", angebote[i].img);
+            newButton.setAttribute("beschreibung", angebote[i].beschreibung);
+            newButton.setAttribute("kategorie", angebote[i].kategorie.toString());
 
 
             switch (angebote[i].kategorie) {
