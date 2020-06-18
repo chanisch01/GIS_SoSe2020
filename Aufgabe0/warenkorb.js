@@ -16,8 +16,8 @@ var Aufgabe07;
     function update() {
         contentDiv.innerHTML = "";
         gesamtPreis = 0;
-        for (let index = 0; index < localStorage.length; index++) {
-            let key = localStorage.key(index);
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
             let articleJson = localStorage.getItem(key);
             let item = JSON.parse(articleJson);
             gesamtPreis += item.preis;

@@ -19,8 +19,8 @@ namespace Aufgabe07 {
     function update(): void {
         contentDiv.innerHTML = "";
         gesamtPreis = 0;
-        for (let index: number = 0; index < localStorage.length; index++) {
-            let key: string = <string>localStorage.key(index);
+        for (let i: number = 0; i < localStorage.length; i++) {
+            let key: string = <string>localStorage.key(i);
             let articleJson: string = <string>localStorage.getItem(key);
 
             let item: Angebote = <Angebote>JSON.parse(articleJson);
