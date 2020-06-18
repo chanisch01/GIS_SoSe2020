@@ -7,8 +7,8 @@ namespace Aufgabe07 {
     let gesamtPreis: number;
 
     function init(_event: Event): void {
-        contentDiv = <HTMLDivElement>document.querySelector(".warenliste");
-        pGesamtpreis = <HTMLParagraphElement>document.querySelector("#total");
+        contentDiv = <HTMLDivElement>document.querySelector(".artikelliste");
+        pGesamtpreis = <HTMLParagraphElement>document.querySelector("#gesamtpreis");
         pGesamtpreis.addEventListener("click", handleRemoveAll);
         document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
 

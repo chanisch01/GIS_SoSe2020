@@ -159,12 +159,12 @@ button:hover {
   
 }
 
-#total{
+#gesamtsumme{
     font-size: 15px;
     font-weight: bold;
 }
 
-.warenliste {
+.artikel {
     align-items: center;
     display: inline-grid;
     position: center;
