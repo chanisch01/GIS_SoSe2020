@@ -42,10 +42,10 @@ namespace Aufgabe07 {
 
         //Bild
 
-        let imgElement: HTMLImageElement = document.createElement("img");
-        imgElement.src = _inputArticle.img;
-        newDiv.appendChild(imgElement);
-        console.log(imgElement);
+        let imgAngebote: HTMLImageElement = document.createElement("img");
+        imgAngebote.src = _inputArticle.img;
+        newDiv.appendChild(imgAngebote);
+        console.log(imgAngebote);
 
         //Name
 
@@ -80,7 +80,7 @@ namespace Aufgabe07 {
     }
 
     function setGesamtpreis(): void {
-        pGesamtpreis.innerHTML = "" + gesamtPreis;
+        pGesamtpreis.innerHTML = "" + gesamtPreis.toFixed(2);
     }
 
     function handleRemoveAll(_event: Event): void {

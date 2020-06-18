@@ -32,10 +32,10 @@ var Aufgabe07;
         newDiv.id = _inputArticle.name;
         console.log(newDiv.id);
         //Bild
-        let imgElement = document.createElement("img");
-        imgElement.src = _inputArticle.img;
-        newDiv.appendChild(imgElement);
-        console.log(imgElement);
+        let imgAngebote = document.createElement("img");
+        imgAngebote.src = _inputArticle.img;
+        newDiv.appendChild(imgAngebote);
+        console.log(imgAngebote);
         //Name
         let name = document.createElement("p");
         name.innerHTML = _inputArticle.name;
@@ -60,7 +60,7 @@ var Aufgabe07;
         update();
     }
     function setGesamtpreis() {
-        pGesamtpreis.innerHTML = "" + gesamtPreis;
+        pGesamtpreis.innerHTML = "" + gesamtPreis.toFixed(2);
     }
     function handleRemoveAll(_event) {
         localStorage.clear();
