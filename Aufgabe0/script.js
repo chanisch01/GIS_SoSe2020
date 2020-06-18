@@ -46,12 +46,12 @@ var Aufgabe07;
             let preisAngebote = document.createElement("p");
             preisAngebote.innerHTML = angebote[i].preis + "€";
             document.getElementById("produkt" + i)?.appendChild(preisAngebote);
-            //Button 
+            //Button
             let kaufen = document.createElement("button");
-            kaufen.innerHTML = "kaufen";
+            kaufen.innerHTML = "In den Warenkorb";
+            document.getElementById("produkt" + i)?.appendChild(kaufen);
             kaufen.addEventListener("click", kaufenButton.bind(angebote[i]));
             kaufen.setAttribute("preis", angebote[i].preis.toString());
-            document.getElementById("produkt" + i)?.appendChild(kaufen);
             //"Button" in Warenkorb
             kaufen.setAttribute("name", angebote[i].name);
             kaufen.setAttribute("img", angebote[i].img);
