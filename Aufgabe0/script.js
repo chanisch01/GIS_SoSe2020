@@ -87,10 +87,10 @@ var Aufgabe07;
         //Teilaufgabe 2:
         function handleCategoryClick(_click) {
             switch (this.getAttribute("id")) {
-                case "bowls":
+                case "bowlsAnzeige":
                     bowls();
                     break;
-                case "zubehoer":
+                case "zubehoerAnzeige":
                     zubehoer();
                     break;
             }

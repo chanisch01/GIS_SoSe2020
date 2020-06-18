@@ -125,10 +125,10 @@ namespace Aufgabe07 {
 
         function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
             switch (this.getAttribute("id")) {
-                case "bowls":
+                case "bowlsAnzeige":
                     bowls();
                     break;
-                case "zubehoer":
+                case "zubehoerAnzeige":
                     zubehoer();
                     break;
             }
