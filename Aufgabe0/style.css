@@ -51,12 +51,18 @@ nav a:hover {
     margin-top: 30px;
     width: 100px;
 }
+#anfang {
+    color: grey;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
 
 h1 {
     color: grey;
         text-align: center;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        text-align: center;
+        
 }
 
 h2 {
