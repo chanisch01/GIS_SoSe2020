@@ -21,9 +21,9 @@ namespace Aufgabe07 {
         gesamtPreis = 0;
         for (let i: number = 0; i < localStorage.length; i++) {
             let key: string = <string>localStorage.key(i);
-            let articleJson: string = <string>localStorage.getItem(key);
+            let angeboteJson: string = <string>localStorage.getItem(key);
 
-            let item: Angebote = <Angebote>JSON.parse(articleJson);
+            let item: Angebote = <Angebote>JSON.parse(angeboteJson);
 
             gesamtPreis += item.preis;
             createDynamicContent(item);
@@ -31,38 +31,38 @@ namespace Aufgabe07 {
         setGesamtpreis();
     }
 
-    function createDynamicContent(_inputArticle: Angebote): void {
+    function createDynamicContent(_inputAngebote: Angebote): void {
 
         //Div erstellen
 
         let newDiv: HTMLDivElement = document.createElement("div");
         contentDiv.appendChild(newDiv);
-        newDiv.id = _inputArticle.name;
+        newDiv.id = _inputAngebote.name;
         console.log(newDiv.id);
 
         //Bild
 
         let imgAngebote: HTMLImageElement = document.createElement("img");
-        imgAngebote.src = _inputArticle.img;
+        imgAngebote.src = _inputAngebote.img;
         newDiv.appendChild(imgAngebote);
         console.log(imgAngebote);
 
         //Name
 
         let name: HTMLParagraphElement = document.createElement("p");
-        name.innerHTML = _inputArticle.name;
+        name.innerHTML = _inputAngebote.name;
         newDiv.appendChild(name);
 
         //Beschreibung
 
         let beschreibungAngebote: HTMLParagraphElement = document.createElement("p");
-        beschreibungAngebote.innerHTML = _inputArticle.beschreibung;
+        beschreibungAngebote.innerHTML = _inputAngebote.beschreibung;
         newDiv.appendChild(beschreibungAngebote);
 
         //Preis
 
         let price: HTMLParagraphElement = document.createElement("p");
-        price.innerHTML = "" + _inputArticle.preis;
+        price.innerHTML = "" + _inputAngebote.preis;
         newDiv.setAttribute("preis", price.innerHTML);
         newDiv.appendChild(price);
 
@@ -71,7 +71,7 @@ namespace Aufgabe07 {
         let kaufen: HTMLButtonElement = document.createElement("button");
         kaufen.innerHTML = "Löschen";
         newDiv.appendChild(kaufen);
-        kaufen.addEventListener("click", handleRemoveArticle.bind(_inputArticle));
+        kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
     }
 
     function handleRemoveArticle(this: Angebote, _event: Event): void {
