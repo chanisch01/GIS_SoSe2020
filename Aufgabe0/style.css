@@ -127,7 +127,7 @@ p {
     text-align: center;
 }
 
-div>button {
+input {
     color: pink;
     border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -151,7 +151,7 @@ button:hover {
     font-weight: bold;
 }
 
-.angeboteliste {
+.angeboteliste div {
     border: 2px solid grey(139, 43, 176);
     max-width: 500px;
     max-height: 400px;

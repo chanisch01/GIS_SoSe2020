@@ -70,16 +70,23 @@ namespace Aufgabe07 {
             document.getElementById("produkt" + i)?.appendChild(preisAngebote);
 
             //Button
-            let newButton: HTMLButtonElement = document.createElement("button");
-            newButton.innerHTML = "Kaufen";
-            newButton.addEventListener("click", kaufenButton.bind(angebote[i]));
-            newButton.setAttribute("preis", angebote[i].preis.toString());
+            let button: HTMLInputElement = document.createElement("input");
+            button.innerHTML = "Jetzt kaufen";
+            button.type = "button";
+            button.value = "Kaufen";
+            preisAngebote.appendChild(button);
+            //button.addEventListener("click", handleAdd);
+            button.addEventListener("click", kaufenButton.bind(angebote[i]));
+            button.setAttribute("preis", angebote[i].preis.toString());
+            //"Button" in Warenkorb
+            button.setAttribute("name", angebote[i].name);
+            button.setAttribute("img", angebote[i].img);
+            button.setAttribute("beschreibung", angebote[i].beschreibung);
+            button.setAttribute("kategorien", angebote[i].kategorie.toString());
 
-            newButton.setAttribute("name", angebote[i].name);
-            newButton.setAttribute("img", angebote[i].img);
-            newButton.setAttribute("beschreibung", angebote[i].beschreibung);
-            newButton.setAttribute("kategorie", angebote[i].kategorie.toString());
-
+            document.getElementById("_angebote" + i)?.appendChild(button);
+            document.getElementById("_angebote" + i)?.appendChild(button);
+            
 
             switch (angebote[i].kategorie) {
                 case "bowls":
