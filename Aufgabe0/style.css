@@ -7,6 +7,10 @@ html {
     background-color: white;
 }
 
+main {
+    background-image: url(https://www.pexels.com/de-de/foto/abstrakt-antik-antiquitat-bau-129731/);
+}
+
 nav {
     text-align: center;
     margin-top: 60px ;
