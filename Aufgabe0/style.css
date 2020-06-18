@@ -165,8 +165,8 @@ p {
     align-items: center;
 }
 
-#kategoriebowls div,
-#kategoriezubehoer div{
+#kategorie bowls div,
+#kategorie zubehoer div{
 
     max-width: 500px;
     max-height: 400px;
@@ -180,8 +180,8 @@ p {
     flex-wrap: auto;
 }
 
- #kategoriebowls div img, 
- #kategoriezubehoer div img{
+ #kategorie bowls div img, 
+ #kategorie zubehoer div img{
    width: 300px;
    height: 200px;
 
