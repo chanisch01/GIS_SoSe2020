@@ -31,49 +31,36 @@ namespace Aufgabe07 {
         setGesamtpreis();
     }
 
- 
+
     function erstelleInhalt(_inputAngebote: Angebote): void {
-       
+
         //Div erstellen
-      
+
         let newDiv: HTMLDivElement = document.createElement("div");
         contentDiv.appendChild(newDiv);
         newDiv.id = _inputAngebote.name;
         console.log(newDiv.id);
-        
+
         //Bild 
-        
+
         let imgElement: HTMLImageElement = document.createElement("img");
         newDiv.appendChild(imgElement);
         imgElement.src = _inputAngebote.img;
         console.log(imgElement);
-        
+
         //Name
-        
+
         let name: HTMLParagraphElement = document.createElement("p");
         newDiv.appendChild(name);
         name.innerHTML = _inputAngebote.name;
 
         //Preis 
-    
+
         let price: HTMLParagraphElement = document.createElement("p");
         newDiv.appendChild(price);
         price.innerHTML = "" + _inputAngebote.preis;
         newDiv.setAttribute("preis", price.innerHTML);
-        
-        //Button
-       
-        let kaufen: HTMLButtonElement  = document.createElement("button");
-        newDiv.appendChild(kaufen);
-        kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
     }
-
-
-    function handleRemoveArticle(this: Angebote, _event: Event): void {
-        localStorage.removeItem(this.name);
-        update();
-    }
-
     function setGesamtpreis(): void {
         pGesamtpreis.innerHTML = "" + gesamtPreis;
     }

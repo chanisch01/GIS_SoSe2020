@@ -45,14 +45,6 @@ var Aufgabe07;
         newDiv.appendChild(price);
         price.innerHTML = "" + _inputAngebote.preis;
         newDiv.setAttribute("preis", price.innerHTML);
-        //Button
-        let kaufen = document.createElement("button");
-        newDiv.appendChild(kaufen);
-        kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
-    }
-    function handleRemoveArticle(_event) {
-        localStorage.removeItem(this.name);
-        update();
     }
     function setGesamtpreis() {
         pGesamtpreis.innerHTML = "" + gesamtPreis;
