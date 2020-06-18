@@ -109,11 +109,6 @@ h3 + p {
     height:20px;
 }
 
-div> img {
-    margin-top: 20px;
-    width: 300px;
-    height: 250px;
-}
 
 p {
     color: grey;
@@ -132,7 +127,7 @@ p {
     text-align: center;
 }
 
-div button {
+div>button {
 
     padding: 5px 7.5px;
     color: pink;
@@ -171,22 +166,21 @@ div button {
 
     max-width: 500px;
     max-height: 400px;
-    display: inline-block;
     text-align: center;
 }
 
 .Container{
     display: flex;
-    flex-direction: row;
     flex-wrap: auto;
 }
 
- #kategorie bowls div img, 
- #kategorie zubehoer div img{
-   width: 300px;
-   height: 200px;
-
+ #kategoriebowls div img, 
+ #kategoriezubehoer div img{
+    margin-top: 20px;
+    width: 300px;
+    height: 250px;
 }
+
 
 
 /* Desktop */
