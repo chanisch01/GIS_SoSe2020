@@ -133,7 +133,8 @@ p {
 }
 
 
-#kategorie1 input, #kategorie2 input { 
+#kategoriebowls button,
+#kategoriezuebhoer button { 
     color: pink;
     border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -152,19 +153,20 @@ p {
   
 }
 
-#gesamt{
+#summe{
     font-size: 15px;
     font-weight: bold;
 }
 
-.warenliste {
+.angeboteliste {
     border: 2px solid grey(139, 43, 176);
     max-width: 500px;
     max-height: 400px;
     align-items: center;
 }
 
-#kategorie1 div, #kategorie2 div{
+#kategoriebowls div,
+#kategoriezubehoer div{
 
     max-width: 500px;
     max-height: 400px;
@@ -178,7 +180,8 @@ p {
     flex-wrap: auto;
 }
 
- #kategorie1 div img, #kategorie2 div img{
+ #kategoriebowls div img, 
+ #kategoriezubehoer div img{
    width: 300px;
    height: 200px;
 
