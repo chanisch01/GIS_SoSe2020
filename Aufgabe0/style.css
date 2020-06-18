@@ -174,7 +174,8 @@ div>button {
     flex-wrap: auto;
 }
 
- div>img{
+#kategoriebowls div>img,
+#kategoriezubehoer div>img {
     margin-top: 20px;
     width: 300px;
     height: 250px;
