@@ -45,13 +45,22 @@ var Aufgabe07;
         newDiv.appendChild(price);
         price.innerHTML = "" + _inputAngebote.preis;
         newDiv.setAttribute("preis", price.innerHTML);
+        //Button
+        let kaufen = document.createElement("button");
+        newDiv.appendChild(kaufen);
+        kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
     }
-    function setGesamtpreis() {
-        pGesamtpreis.innerHTML = "" + gesamtPreis;
-    }
-    function handleRemoveAll(_event) {
-        localStorage.clear();
+    function handleRemoveArticle(_event) {
+        localStorage.removeItem(this.name);
         update();
-    }
-})(Aufgabe07 || (Aufgabe07 = {}));
+    
+}
+    function setGesamtpreis() {
+    pGesamtpreis.innerHTML = "" + gesamtPreis;
+}
+function handleRemoveAll(_event) {
+    localStorage.clear();
+    update();
+}
+}) (Aufgabe07 || (Aufgabe07 = {}));
 //# sourceMappingURL=warenkorb.js.map
