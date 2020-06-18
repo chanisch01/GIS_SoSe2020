@@ -164,9 +164,7 @@ button:hover {
 }
 
 .warenliste {
-    border: 2px solid grey;
-    max-width: 500px;
-    max-height: 400px;
+    border: 1px solid grey;
     align-items: center;
 }
 
