@@ -6,8 +6,8 @@ var Aufgabe07;
     let pGesamtpreis;
     let gesamtPreis;
     function init(_event) {
-        contentDiv = document.querySelector(".artikelListe");
-        pGesamtpreis = document.querySelector("#gesamtsumme");
+        contentDiv = document.querySelector(".artikelliste");
+        pGesamtpreis = document.querySelector("#gesamtpreis");
         pGesamtpreis.addEventListener("click", handleRemoveAll);
         document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
         console.log(localStorage);
@@ -53,14 +53,13 @@ var Aufgabe07;
     function handleRemoveArticle(_event) {
         localStorage.removeItem(this.name);
         update();
-    
-}
+    }
     function setGesamtpreis() {
-    pGesamtpreis.innerHTML = "" + gesamtPreis;
-}
-function handleRemoveAll(_event) {
-    localStorage.clear();
-    update();
-}
-}) (Aufgabe07 || (Aufgabe07 = {}));
+        pGesamtpreis.innerHTML = "" + gesamtPreis;
+    }
+    function handleRemoveAll(_event) {
+        localStorage.clear();
+        update();
+    }
+})(Aufgabe07 || (Aufgabe07 = {}));
 //# sourceMappingURL=warenkorb.js.map
