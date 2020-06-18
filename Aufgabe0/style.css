@@ -133,14 +133,14 @@ p {
 }
 
 
-#kategorie1 input, #kategorie2 input { 
+#div button{ 
     color: pink;
     border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 20px;
 }
 
-#kategorie1:hover, #kategorie2:hover {
+#div button:hover {
     color: grey;
     font-weight: bolder; 
 }
@@ -152,7 +152,7 @@ p {
   
 }
 
-#gesamt{
+#total{
     font-size: 15px;
     font-weight: bold;
 }
@@ -164,25 +164,6 @@ p {
     align-items: center;
 }
 
-#kategorie1 div, #kategorie2 div{
-
-    max-width: 500px;
-    max-height: 400px;
-    display: inline-block;
-    text-align: center;
-}
-
-.Container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: auto;
-}
-
- #kategorie1 div img, #kategorie2 div img{
-   width: 300px;
-   height: 200px;
-
-}
 
 
 /* Desktop */
