@@ -48,7 +48,7 @@ var Aufgabe07;
             document.getElementById("produkt" + i)?.appendChild(preisAngebote);
             //Button
             let kaufen = document.createElement("button");
-            kaufen.innerHTML = "In den Warenkorb";
+            kaufen.innerHTML = "Kaufen";
             document.getElementById("produkt" + i)?.appendChild(kaufen);
             kaufen.addEventListener("click", kaufenButton.bind(angebote[i]));
             kaufen.setAttribute("preis", angebote[i].preis.toString());
@@ -57,6 +57,8 @@ var Aufgabe07;
             kaufen.setAttribute("img", angebote[i].img);
             kaufen.setAttribute("beschreibung", angebote[i].beschreibung);
             kaufen.setAttribute("kategorie", angebote[i].kategorie);
+            document.getElementById("_angebote" + i)?.appendChild(kaufen);
+            document.getElementById("_angebote" + i)?.appendChild(kaufen);
             switch (angebote[i].kategorie) {
                 case "bowls":
                     let getContainerBowls = document.getElementById("bowls");

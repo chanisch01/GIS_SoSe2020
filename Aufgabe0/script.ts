@@ -84,6 +84,8 @@ namespace Aufgabe07 {
             kaufen.setAttribute("beschreibung", angebote[i].beschreibung);
             kaufen.setAttribute("kategorie", angebote[i].kategorie);
 
+            document.getElementById("_angebote" + i)?.appendChild(kaufen);
+            document.getElementById("_angebote" + i)?.appendChild(kaufen);
 
 
             switch (angebote[i].kategorie) {
