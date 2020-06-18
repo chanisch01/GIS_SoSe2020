@@ -109,6 +109,11 @@ h3 + p {
     height:20px;
 }
 
+div> img {
+    margin-top: 20px;
+    width: 300px;
+    height: 250px;
+}
 
 p {
     color: grey;
@@ -127,14 +132,15 @@ p {
     text-align: center;
 }
 
-button {
+
+#kategorie1 input, #kategorie2 input { 
     color: pink;
     border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 20px;
 }
 
-button:hover {
+#kategorie1:hover, #kategorie2:hover {
     color: grey;
     font-weight: bolder; 
 }
@@ -146,31 +152,37 @@ button:hover {
   
 }
 
-#summe{
+#gesamt{
     font-size: 15px;
     font-weight: bold;
 }
 
-.angeboteliste div {
+.warenliste {
     border: 2px solid grey(139, 43, 176);
     max-width: 500px;
     max-height: 400px;
     align-items: center;
 }
 
-div {
+#kategorie1 div, #kategorie2 div{
 
     max-width: 500px;
     max-height: 400px;
+    display: inline-block;
     text-align: center;
 }
 
-div>img {
-    margin-top: 20px;
-    width: 300px;
-    height: 250px;
+.Container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: auto;
 }
 
+ #kategorie1 div img, #kategorie2 div img{
+   width: 300px;
+   height: 200px;
+
+}
 
 
 /* Desktop */
