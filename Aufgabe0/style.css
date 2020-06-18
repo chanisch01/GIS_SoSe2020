@@ -127,9 +127,7 @@ p {
     text-align: center;
 }
 
-div>button {
-
-    padding: 5px 7.5px;
+button {
     color: pink;
     border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
