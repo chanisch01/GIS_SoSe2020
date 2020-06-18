@@ -132,16 +132,17 @@ p {
     text-align: center;
 }
 
+div button {
 
-#kategoriebowls button,
-#kategoriezuebhoer button { 
+    padding: 5px 7.5px;
     color: pink;
     border: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 20px;
 }
 
-#kategorie1:hover, #kategorie2:hover {
+#kategoriebowls:hover, 
+#kategoriezubehoer:hover {
     color: grey;
     font-weight: bolder; 
 }
