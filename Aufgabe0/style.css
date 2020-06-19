@@ -1,10 +1,12 @@
 html {
-    background-image: url(hintergrund.jpg);
     padding: 0;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+body {
+    background-image: url(hintergrund.jpg);
+}
 
 nav {
     text-align: center;
