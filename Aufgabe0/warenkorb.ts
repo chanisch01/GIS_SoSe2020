@@ -7,8 +7,8 @@ namespace Aufgabe07 {
     let gesamtPreis: number;
 
     function init(_event: Event): void {
-        contentDiv = <HTMLDivElement>document.querySelector(".artikelliste");
-        pGesamtpreis = <HTMLParagraphElement>document.querySelector("#gesamtpreis");
+        contentDiv = <HTMLDivElement>document.querySelector(".artikelListe");
+        pGesamtpreis = <HTMLParagraphElement>document.querySelector("#gesamtsumme");
         pGesamtpreis.addEventListener("click", handleRemoveAll);
         document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
 
@@ -48,11 +48,13 @@ namespace Aufgabe07 {
         imgElement.src = _inputAngebote.img;
         console.log(imgElement);
 
+        
         //Name
 
         let name: HTMLParagraphElement = document.createElement("p");
         newDiv.appendChild(name);
         name.innerHTML = _inputAngebote.name;
+
 
         //Preis 
 

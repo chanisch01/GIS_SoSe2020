@@ -6,8 +6,8 @@ var Aufgabe07;
     let pGesamtpreis;
     let gesamtPreis;
     function init(_event) {
-        contentDiv = document.querySelector(".artikelliste");
-        pGesamtpreis = document.querySelector("#gesamtpreis");
+        contentDiv = document.querySelector(".artikelListe");
+        pGesamtpreis = document.querySelector("#gesamtsumme");
         pGesamtpreis.addEventListener("click", handleRemoveAll);
         document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
         console.log(localStorage);
