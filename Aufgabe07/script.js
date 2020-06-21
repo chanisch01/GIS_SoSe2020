@@ -88,7 +88,7 @@ var Aufgabe07;
         //Teilaufgabe 2:
         function handleCategoryClick(_click) {
             switch (this.getAttribute("id")) {
-                case "bowlsAnzeige":
+                case "bowlsAnzeigen":
                     bowls();
                     break;
                 case "zubehoerAnzeige":
@@ -104,9 +104,9 @@ var Aufgabe07;
                 document.getElementById("bowls").style.display = "none";
             }
         }
-        let bowlsAnzeigen = document.querySelector("#bowls");
+        let bowlsAnzeigen = document.querySelector("#bowlsAnzeige");
         bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
-        let zubehoerAnzeigen = document.querySelector("#zubehoer");
+        let zubehoerAnzeigen = document.querySelector("#zubehoerAnzeige");
         zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
     }
 })(Aufgabe07 || (Aufgabe07 = {}));
