@@ -88,10 +88,10 @@ var Aufgabe07;
         //Teilaufgabe 2:
         function handleCategoryClick(_click) {
             switch (this.getAttribute("id")) {
-                case "bowlsAnzeigen":
+                case "bowlsButton":
                     bowls();
                     break;
-                case "zubehoerAnzeige":
+                case "zubehoerButton":
                     zubehoer();
                     break;
             }
@@ -104,9 +104,9 @@ var Aufgabe07;
                 document.getElementById("bowls").style.display = "none";
             }
         }
-        let bowlsAnzeigen = document.querySelector("#bowlsAnzeige");
+        let bowlsAnzeigen = document.querySelector("#bowlsButton");
         bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
-        let zubehoerAnzeigen = document.querySelector("#zubehoerAnzeige");
+        let zubehoerAnzeigen = document.querySelector("#zubehoerButton");
         zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
     }
 })(Aufgabe07 || (Aufgabe07 = {}));

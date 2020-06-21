@@ -127,10 +127,10 @@ namespace Aufgabe07 {
 
         function handleCategoryClick(this: HTMLDivElement, _click: MouseEvent): void {
             switch (this.getAttribute("id")) {
-                case "bowlsAnzeigen":
+                case "bowlsButton":
                     bowls();
                     break;
-                case "zubehoerAnzeige":
+                case "zubehoerButton":
                     zubehoer();
                     break;
             }
@@ -149,10 +149,10 @@ namespace Aufgabe07 {
             }
 
         }
-        let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsAnzeige");
+        let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsButton");
         bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
 
-        let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerAnzeige");
+        let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
         zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
 
 
