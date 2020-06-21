@@ -144,17 +144,18 @@ namespace Aufgabe07 {
             function zubehoer(): void {
                 (<HTMLElement>document.getElementById("zubehoer")).style.display = "inline-grid";
                 (<HTMLElement>document.getElementById("bowls")).style.display = "none";
-
-
             }
-
         }
+       
+
         let bowlsAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#bowlsButton");
         bowlsAnzeigen.addEventListener("click", handleCategoryClick.bind(bowlsAnzeigen));
 
         let zubehoerAnzeigen: HTMLDivElement = <HTMLDivElement>document.querySelector("#zubehoerButton");
         zubehoerAnzeigen.addEventListener("click", handleCategoryClick.bind(zubehoerAnzeigen));
 
-
     }
 }
+
+    
+
