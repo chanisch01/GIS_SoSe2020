@@ -67,7 +67,7 @@ namespace Aufgabe07 {
 
         let kaufen: HTMLButtonElement = document.createElement("button");
         newDiv.appendChild(kaufen);
-        kaufen.innerHTML = "Löschen";
+        kaufen.innerHTML = " Artikel löschen";
         kaufen.addEventListener("click", handleRemoveArticle.bind(_inputAngebote));
     }
 
