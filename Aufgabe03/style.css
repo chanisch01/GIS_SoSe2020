@@ -1,0 +1,147 @@
+html{
+    background: url(https://gabriel-rausch.github.io/EIA1-SoSe20/L03/task_material/images/bg.png);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: sans-serif;
+    width: 800px;
+  
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    width: 800px;
+
+    
+}
+
+ nav #normal{
+   display: inline-block;
+   text-align: right;
+   background-color: grey;
+   margin: 0px auto;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color:grey;
+    text-align: right;
+}
+
+li {
+    display: inline-block;
+    margin: 0px 1px;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+
+nav a:hover {
+    background-color: lightgrey;
+    color: grey;
+    font-weight: bolder;
+}
+
+.active {
+    background-color: pink;
+}
+ 
+ img {
+   align-items: center;
+   margin: 0 auto;
+ }
+
+p {
+    color: black;
+    text-align: center;
+    font-size: 10pt;
+    font-family: sans-serif;
+    margin-top: 20px;
+
+}
+
+ nav icons {
+    list-style: none;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    padding: 0;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-weight: bolder;
+    color:white;
+    margin: 50px;
+    padding: 0;
+    font-size: 100px;
+}
+
+h2 {
+    font-family: sans-serif;
+    font-weight: bolder;
+    color:black;
+    margin-top: -10px;
+    text-align: left;
+}
+h3 {
+    font-family: sans-serif;
+    font-weight: bolder;
+    color:white;
+    margin: 20px;
+    text-align: left;
+}
+
+#oben {
+    width: 800px;
+    height: 300px;
+    display: block;
+    background-color: grey;
+    margin: 0px auto;
+    
+}
+
+#text {
+    border: 1px grey;
+    width: 800px;
+    height: max-content;
+    display: block;
+    background-color: lightgrey;
+    margin-top: 80px;
+
+}
+
+#block {
+    color: white;
+    text-align: center;
+    font-size: 15pt;
+    font-family: sans-serif;
+    margin-top: -30px;
+}
+
+table {
+    margin-left: auto; margin-right: auto;
+   
+}
+
+input {
+    border: 0;
+    background-color: darkgrey;
+    color: white;
+}
+
+div {
+    color: black;
+    text-align: center;
+    font-size: 10pt;
+    font-family: sans-serif;
+}
