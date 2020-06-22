@@ -1,0 +1,22 @@
+{
+  "name": "chani01gis",
+  "version": "1.0.0",
+  "description": "Test NodeJS Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Aufgabe08/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanisch01/GIS_SoSe2020.git"
+  },
+  "author": "Chanida Schuler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chanisch01/GIS_SoSe2020/issues"
+  },
+  "homepage": "https://github.com/chanisch01/GIS_SoSe2020#readme",
+  "dependencies": {
+    "@types/node": "^14.0.13"
+  }
+}
