@@ -1,4 +1,9 @@
-import * as Http from "http";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.A08Server = void 0;
+const Http = require("http");
+var A08Server;
+(function (A08Server) {
 
   console.log("Starting server");
   let port = Number(process.env.PORT);
@@ -24,3 +29,5 @@ import * as Http from "http";
 
     _response.end();
   }
+})(A08Server = exports.A08Server || (exports.A08Server = {}));
+//# sourceMappingURL=server.js.map

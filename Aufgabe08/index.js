@@ -20,4 +20,4 @@ var Aufgabe08;
         }
     }
     })(Aufgabe08 || (Aufgabe08 = {}));
-    //# sourceMappingURL=index.js.map
+   //# sourceMappingURL=index.js.map
