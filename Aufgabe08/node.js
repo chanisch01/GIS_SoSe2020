@@ -1,9 +1,9 @@
-"use strict"
-var Aufgabe08;
+"use strict";
+var Aufgabe8;
 (function (Aufgabe08) {
 
     let button = document.getElementById("button");
-    document.getElementById("button").addEventListener("click", handleClick);
+    button.addEventListener("click", handleClick);
 
     async function handleClick() {
 
@@ -11,7 +11,7 @@ var Aufgabe08;
         let url = "https://chani01gis.herokuapp.com/";
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
-        console.log(url);
+        await fetch(url);
 
         for (let entry of query) {
             console.log(entry);

@@ -1,14 +1,14 @@
 namespace Aufgabe08 {
 
     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
-    document.getElementById("button").addEventListener("click", handleClick);
+    button.addEventListener("click", handleClick);
 
     async function handleClick(): Promise<void> {
 
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://chani01gis.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "?" + query.toString();
+       
        
         url = url + "?" + query.toString();
         await fetch(url);
