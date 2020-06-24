@@ -1,5 +1,5 @@
 "use strict";
-var Aufgabe8;
+var Aufgabe08;
 (function (Aufgabe08) {
 
     let button = document.getElementById("button");
