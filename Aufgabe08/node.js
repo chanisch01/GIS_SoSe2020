@@ -8,7 +8,7 @@ var Aufgabe08;
     async function handleClick() {
 
         let formData = new FormData(document.forms[0]);
-        let url = "https://chani01gis.herokuapp.com/";
+        let url = "";
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
         await fetch(url);
