@@ -14,7 +14,7 @@ namespace Aufgabe08 {
         for (let entry of query) {
             console.log(entry);
             console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);;
+            console.log("value: " + entry[1]);
         }
 
     }

@@ -12,7 +12,6 @@ var Aufgabe08;
             console.log(entry);
             console.log("name: " + entry[0]);
             console.log("value: " + entry[1]);
-            ;
         }
     }
 })(Aufgabe08 || (Aufgabe08 = {}));
