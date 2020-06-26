@@ -2,9 +2,9 @@ namespace Aufgabe08 {
 
 
     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
-    button.addEventListener("click", handleClick);
+    button.addEventListener("click", addUrl);
 
-    async function handleClick(): Promise<void> {
+    async function addUrl(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
 
         let url: string = "https://csgis2020.herokuapp.com/";

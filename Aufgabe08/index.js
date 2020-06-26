@@ -3,9 +3,9 @@ var Aufgabe08;
 (function (Aufgabe08) {
 
     let button = document.getElementById("button");
-    button.addEventListener("click", handleClick);
+    button.addEventListener("click", addUrl);
     
-    async function handleClick() {
+    async function addUrl() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com/";
         let query = new URLSearchParams(formData);
