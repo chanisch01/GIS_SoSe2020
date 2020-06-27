@@ -12,11 +12,10 @@ var A08Server;
     server.addListener("request", handleRequest); //Funktion handleRequest wird aufgerufen
     server.addListener("listening", handleListen); //HandleListen Funktion wird aufgerufen
     server.listen(port); //Server hört/reagiert auf port und startet
-    function handleListen() { //Konsole gibt Listening aus wenn Funktion aufgerufen wird
+    function handleListen() {
         console.log("Listening");
     }
-    function handleRequest(_request, _response) { //Konsole gibt I hear voices aus 
-
+    function handleRequest(_request, _response) {
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
