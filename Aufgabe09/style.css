@@ -1,0 +1,18 @@
+html {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#button {
+    border-radius: 1px solid pink;
+    background-color: pink;
+    margin-top: 20px;
+    border-color: pink;
+}
+
+#button:hover {
+    color: grey;
+}
+
+h1 {
+    color: grey;
+}
