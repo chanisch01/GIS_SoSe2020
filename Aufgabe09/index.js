@@ -7,28 +7,32 @@ var Aufgabe09;
 
     let buttonJSON = document.getElementById("buttonJSON");
     buttonJSON.addEventListener("click", clickJSON);
-    let formData;
+
+    let server = document.getElementById("server");
+
     async function clickHTML() {
-        formData = new FormData(document.forms[0]);
+        let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/html";
         let query = new URLSearchParams(formData);
-        url += "?" + query.toString();
-        let antwort = await fetch(url);
-        let antwortText = await antwort.text();
-        console.log(antwortText);
-        let serverAntwort = document.getElementById("ausgabeServer");
-        serverAntwort.innerHTML = antwortText;
+        url = url + "?" + query.toString();
+        let response = await fetch(url);
+        let responseText = await response.text();
+        server.innerHTML = responseText;
     }
     async function clickJSON() {
-        formData = new FormData(document.forms[0]);
+        let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/json";
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
-        let antwort = await fetch(url);
-        let antwortText = await antwort.json();
-        console.log(antwortText);
+        let response = await fetch(url);
+        let responseText = await response.text();
+        console.log(responseText);
+        let responseJson = JSON.parse(responseText);
+        console.log(responseJson);
+        server.innerHTML = responseText;
+        console.log(server);
     }
 })(Aufgabe09 || (Aufgabe09 = {}));
 //# sourceMappingURL=index.js.map
