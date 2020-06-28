@@ -2,11 +2,14 @@
 var Aufgabe09;
 (function (Aufgabe09) {
     let buttonHtml = document.getElementById("buttonHtml");
-    buttonHtml.addEventListener("click", clickHtml);
+    buttonHtml.addEventListener("click", handleButtonHTML);
+
     let buttonJson = document.getElementById("buttonJson");
-    buttonJson.addEventListener("click", clickJson);
+    buttonJson.addEventListener("click", handleButtonJson);
+
     let server = document.getElementById("server");
-    async function clickHtml() {
+    
+    async function handleButtonHtml() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/html";
@@ -16,7 +19,7 @@ var Aufgabe09;
         let responseText = await response.text();
         server.innerHTML = responseText;
     }
-    async function clickJson() {
+    async function handleButtonJson() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/json";
@@ -31,4 +34,5 @@ var Aufgabe09;
         console.log(server);
     }
 })(Aufgabe09 || (Aufgabe09 = {}));
+//# sourceMappingURL=skript.js.map
 //# sourceMappingURL=index.js.map
