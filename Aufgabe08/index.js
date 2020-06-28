@@ -12,7 +12,7 @@ var Aufgabe8;
         console.log("Vorname " + formData.get("vname"));
         console.log("Nachname " + formData.get("nname"));
         console.log("Telefon" + formData.get("telefon"));
-        console.log("E-Mail " + formData.get("e-mail"));
+        console.log("Adresse " + formData.get("adresse"));
     }
 })(Aufgabe8 || (Aufgabe8 = {}));
 //# sourceMappingURL=index.js.map
