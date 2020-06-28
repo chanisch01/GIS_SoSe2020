@@ -1,4 +1,4 @@
-namespace Aufgabe8 {
+namespace Aufgabe08 {
 
     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
     button.addEventListener("click", handle);
@@ -11,9 +11,10 @@ namespace Aufgabe8 {
         url = url + "?" + query.toString();
         console.log(url);
 
-        console.log("Benutzername " + formData.get("name"));
-        console.log("Passwort " + formData.get("passwort"));
+        console.log("Vorname " + formData.get("vname"));
+        console.log("Nachname " + formData.get("nname"));
         console.log("Telefon" + formData.get("telefon"));
+        console.log("E-Mail " + formData.get("e-mail"));
 
     }
 }
