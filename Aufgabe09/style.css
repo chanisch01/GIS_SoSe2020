@@ -3,19 +3,19 @@ html {
 }
 
 #buttonJSON {
-    border-radius: 1px solid pink;
-    background-color: pink;
+    border-radius: 1px solid grey;
+    background-color: grey;
     margin-top: 20px;
-    border-color: pink;
-    color: grey;
+    border-color: grey;
+    color: white;
 }
 
 #buttonHTML {
-    border-radius: 1px solid pink;
-    background-color: pink;
+    border-radius: 1px solid grey;
+    background-color: grey;
     margin-top: 20px;
-    border-color: pink;
-    color: grey;
+    border-color: grey;
+    color: white;
 }
 
 h1 {
