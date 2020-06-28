@@ -2,7 +2,7 @@ html {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#button {
+#buttonJSON {
     border-radius: 1px solid pink;
     background-color: pink;
     margin-top: 20px;
