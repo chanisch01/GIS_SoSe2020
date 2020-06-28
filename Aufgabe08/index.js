@@ -11,6 +11,7 @@ var Aufgabe08;
         console.log(url);
         console.log("Benutzername " + formData.get("name"));
         console.log("Passwort " + formData.get("passwort"));
+        console.log("E-Mail" + formData.get("e-mail"));
     }
 })(Aufgabe08 || (Aufgabe08 = {}));
 //# sourceMappingURL=index.js.map

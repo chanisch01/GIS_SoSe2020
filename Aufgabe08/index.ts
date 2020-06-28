@@ -13,6 +13,7 @@ namespace Aufgabe8 {
 
         console.log("Benutzername " + formData.get("name"));
         console.log("Passwort " + formData.get("passwort"));
+        console.log("E-Mail" + formData.get("e-mail"));
 
     }
 }
