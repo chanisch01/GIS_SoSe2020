@@ -1,7 +1,7 @@
 namespace Aufgabe09 {
 
-    let buttonHtml: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonHtml");
-    buttonHtml.addEventListener("click", handleButtonHtml);
+    let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonHTML");
+    buttonHTML.addEventListener("click", handleButtonHTML);
 
     let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonJSON");
     buttonJSON.addEventListener("click", handleButtonJSON);
@@ -9,7 +9,7 @@ namespace Aufgabe09 {
     let server: HTMLElement = <HTMLElement>document.getElementById("server");
 
 
-    async function handleButtonHtml(): Promise<void> {
+    async function handleButtonHTML(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://csgis2020.herokuapp.com";
         url += "/html";

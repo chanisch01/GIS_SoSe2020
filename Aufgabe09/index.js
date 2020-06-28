@@ -1,8 +1,8 @@
 "use strict";
 var Aufgabe09;
 (function (Aufgabe09) {
-    let buttonHtml = document.getElementById("buttonHtml");
-    buttonHtml.addEventListener("click", handleButtonHtml);
+    let buttonHTML = document.getElementById("buttonHTML");
+    buttonHTML.addEventListener("click", handleButtonHTML);
 
     let buttonJSON = document.getElementById("buttonJSON");
     buttonJSON.addEventListener("click", handleButtonJSON);
