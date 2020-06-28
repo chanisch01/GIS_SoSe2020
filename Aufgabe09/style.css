@@ -8,11 +8,9 @@ html {
     background-color: pink;
     margin-top: 20px;
     border-color: pink;
-}
-
-#button:hover {
     color: grey;
 }
+
 
 h1 {
     color: grey;
