@@ -9,9 +9,10 @@ var Aufgabe8;
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
         console.log(url);
-        console.log("Benutzername " + formData.get("name"));
-        console.log("Passwort " + formData.get("passwort"));
+        console.log("Vorname " + formData.get("vname"));
+        console.log("Nachname " + formData.get("nname"));
         console.log("Telefon" + formData.get("telefon"));
+        console.log("E-Mail " + formData.get("e-mail"));
     }
 })(Aufgabe8 || (Aufgabe8 = {}));
 //# sourceMappingURL=index.js.map
