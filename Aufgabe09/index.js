@@ -3,12 +3,12 @@ var Aufgabe09;
 (function (Aufgabe09) {
 
     let buttonHTML = document.getElementById("buttonHTML");
-    buttonHTML.addEventListener("click", handleButtonHTML);
+    buttonHTML.addEventListener("click", clickHTML);
 
     let buttonJSON = document.getElementById("buttonJSON");
-    buttonJSON.addEventListener("click", handleButtonJSON);
+    buttonJSON.addEventListener("click", clickJSON);
     let formData;
-    async function handleButtonHTML() {
+    async function clickHTML() {
         formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/html";
@@ -20,7 +20,7 @@ var Aufgabe09;
         let serverAntwort = document.getElementById("ausgabeServer");
         serverAntwort.innerHTML = antwortText;
     }
-    async function handleButtonJSON() {
+    async function clickJSON() {
         formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/json";
