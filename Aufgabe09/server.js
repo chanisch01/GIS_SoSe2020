@@ -20,22 +20,20 @@ var A09Server;
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            let pathname = url.pathname;
-            if (pathname == "/json") {
+            let path = url.pathname;
+            if (path == "/json") {
                 let jsonString = JSON.stringify(url.query);
-                console.log(jsonString);
                 _response.write(jsonString);
+                console.log(jsonString);
             }
-            if (pathname == "/html") {
+            else if (path == "/html") {
                 for (let key in url.query) {
                     _response.write(key + ":" + url.query[key] + "<br/>");
                 }
             }
         }
-                  
         _response.end();
     }
 })(A09Server = exports.A09Server || (exports.A09Server = {}));
