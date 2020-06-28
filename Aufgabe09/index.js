@@ -1,15 +1,12 @@
 "use strict";
 var Aufgabe09;
 (function (Aufgabe09) {
-    let buttonHTML = document.getElementById("buttonHTML");
-    buttonHTML.addEventListener("click", handleButtonHTML);
-
-    let buttonJSON = document.getElementById("buttonJSON");
-    buttonJSON.addEventListener("click", handleButtonJSON);
-
+    let btnHtml = document.getElementById("buttonHtml");
+    btnHtml.addEventListener("click", clickHtml);
+    let btnJson = document.getElementById("buttonJson");
+    btnJson.addEventListener("click", clickJson);
     let server = document.getElementById("server");
-
-    async function handleButtonHtml() {
+    async function clickHtml() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/html";
@@ -19,7 +16,7 @@ var Aufgabe09;
         let responseText = await response.text();
         server.innerHTML = responseText;
     }
-    async function handleButtonJSON() {
+    async function clickJson() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         url += "/json";
