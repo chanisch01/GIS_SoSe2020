@@ -2,8 +2,7 @@ html {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#buttonJSON
-#buttonHTML {
+#buttonJSON {
     border-radius: 1px solid pink;
     background-color: pink;
     margin-top: 20px;
@@ -11,6 +10,13 @@ html {
     color: grey;
 }
 
+#buttonHTML {
+    border-radius: 1px solid pink;
+    background-color: pink;
+    margin-top: 20px;
+    border-color: pink;
+    color: grey;
+}
 
 h1 {
     color: grey;
