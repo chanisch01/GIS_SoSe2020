@@ -20,6 +20,7 @@ var A09Server;
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
+        
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             let pathname = url.pathname;
@@ -34,6 +35,7 @@ var A09Server;
                 }
             }
         }
+                  
         _response.end();
     }
 })(A09Server = exports.A09Server || (exports.A09Server = {}));
