@@ -30,5 +30,3 @@ var Aufgabe09;
     }
 })(Aufgabe09 || (Aufgabe09 = {}));
 //# sourceMappingURL=index.js.map
-
-

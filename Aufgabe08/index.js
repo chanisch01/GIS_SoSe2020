@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe08;
-(function (Aufgabe08) {
+var Aufgabe8;
+(function (Aufgabe8) {
     let button = document.getElementById("button");
     button.addEventListener("click", handle);
     async function handle() {
@@ -13,5 +13,5 @@ var Aufgabe08;
         console.log("Passwort " + formData.get("passwort"));
         console.log("Telefon" + formData.get("telefon"));
     }
-})(Aufgabe08 || (Aufgabe08 = {}));
+})(Aufgabe8 || (Aufgabe8 = {}));
 //# sourceMappingURL=index.js.map
