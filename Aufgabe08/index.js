@@ -2,7 +2,7 @@
 var Aufgabe08;
 (function (Aufgabe08) {
     let button = document.getElementById("button");
-    button.addEventListener("click", handle);
+    button?.addEventListener("click", handle);
     async function handle() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com/";
