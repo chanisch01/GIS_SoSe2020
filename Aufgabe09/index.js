@@ -2,8 +2,8 @@
 var Aufgabe09;
 (function (Aufgabe09) {
 
-    let buttonHTML = document.getElementById("buttonHTML");
-    buttonHTML.addEventListener("click", handleButtonHTML);
+    let button = document.getElementById("buttonHTML");
+    button.addEventListener("click", handleButtonHTML);
     let submitBut = document.getElementById("buttonJSON");
     submitBut.addEventListener("click", handleButtonJSON);
     let formData;
