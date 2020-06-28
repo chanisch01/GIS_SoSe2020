@@ -1,40 +1,39 @@
 namespace Aufgabe9 {
 
-    let buttonHtml: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonHtml");
-    buttonHtml.addEventListener("click", handleButtonHtml);
+    let buttonHTML: HTMLButtonElement = <HTMLButtonElement> document.getElementById("buttonHTML");
+    buttonHTML.addEventListener("click", handleButtonHTML);
 
-    let buttonJson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonJson");
-    buttonJson.addEventListener("click", handleButtonJson);
+    let submitBut: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonJSON");
+    submitBut.addEventListener("click", handleButtonJSON);
 
-    let server: HTMLElement = <HTMLElement>document.getElementById("server");
+    let formData: FormData;
 
-
-    async function handleButtonHtml(): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
+    async function handleButtonHTML(): Promise<void> {
+        formData = new FormData(document.forms[0]);
         let url: string = "https://csgis2020.herokuapp.com";
         url += "/html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "?" + query.toString();
+        url += "?" + query.toString();
 
-        let response: Response = await fetch(url);
-        let responseText: string = await response.text();
-        console.log(responseText);
+        let antwort: Response = await fetch(url);
+        let antwortText: string = await antwort.text();
+        console.log(antwortText);
 
-        let serverAntwort: HTMLElement = <HTMLElement> document.getElementById("ausgabeServer");
-        serverAntwort.innerHTML = responseText;
+        let serverAntwort: HTMLElement = <HTMLElement> document.getElementById("antwortServer");
+        serverAntwort.innerHTML = antwortText;
+    }
+    
+    async function handleButtonJSON(): Promise<void> {
 
- }
-    async function handleButtonJson(): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
+        formData = new FormData(document.forms[0]);
         let url: string = "https://csgis2020.herokuapp.com";
         url += "/json";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "?" + query.toString();
 
-        let response: Response = await fetch(url);
-        let responseText: string = await response.text();
-
-        console.log(responseText);
+        let antwort: Response = await fetch(url);
+        let antwortText: string = await antwort.json();
+        console.log(antwortText);
         
     }
 }
