@@ -36,6 +36,5 @@ var A09Server;
         }
         _response.end();
     }
-    A09Server.handleRequest = handleRequest;
 })(A09Server = exports.A09Server || (exports.A09Server = {}));
 //# sourceMappingURL=server.js.map

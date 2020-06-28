@@ -16,12 +16,12 @@ export namespace A09Server {
         console.log("Listening");
     }
 
-    export function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
         console.log("I hear voices!");
-
 
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
+
 
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
@@ -35,6 +35,7 @@ export namespace A09Server {
                 for (let key in url.query) {
                     _response.write(key + ":" + url.query[key] + "<br/>");
                 }
+
             }
         }
 
