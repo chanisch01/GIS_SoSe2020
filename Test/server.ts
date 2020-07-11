@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe11 {
       
       let studentList: Mongo.Collection;
-      let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
+      let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
  
       console.log("Starting server");
       
