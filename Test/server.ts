@@ -2,7 +2,7 @@ import * as Http from "http";
 import * as url from "url";
 import * as Mongo from "mongodb";
 
-export namespace Aufgabe10 {
+export namespace Aufgabe11 {
 
     console.log("Starting server");
    
@@ -20,7 +20,7 @@ export namespace Aufgabe10 {
         console.log("Listening");
     }
 
-    let databaseURL: string = "mongodb+srv://jiaiesNewuser:jiaiesNewuserpw@gisgehtab.9jp9v.mongodb.net/Test?retryWrites=true&w=majority";
+    let databaseURL: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
     connect(databaseURL);
 
     let orders: Mongo.Collection;
@@ -41,17 +41,17 @@ export namespace Aufgabe10 {
         if (_request.url) {
             let q: url.UrlWithParsedQuery = url.parse(_request.url, true);
 
-            if (q.pathname == "/retrieve") {
+            if (q.pathname == "/button1") {
                 let storage: Mongo.Cursor<string> = orders.find();
                 let storageArray: string [] = await storage.toArray();
                 _response.write(JSON.stringify(storageArray));
             }
 
-            else if (q.pathname == "/store") {
+            else if (q.pathname == "/button2") {
                 orders.insertOne(q.query);
             }
 
-            console.log("Hat geklappt!");
+            console.log("");
             _response.end();
         }
     }
