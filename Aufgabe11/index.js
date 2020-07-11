@@ -1,9 +1,9 @@
 "use strict";
-var Aufgabe9;
-(function (Aufgabe9) {
-    let buttonHTML = document.getElementById("buttonHTML");
+var Aufgabe11;
+(function (Aufgabe11) {
+    let buttonHTML = document.getElementById("Anlegen");
     buttonHTML.addEventListener("click", clickHTML);
-    let buttonJSON = document.getElementById("buttonJSON");
+    let buttonJSON = document.getElementById("Ausgeben");
     buttonJSON.addEventListener("click", clickJSON);
     let server = document.getElementById("server");
     async function clickHTML() {
@@ -30,5 +30,5 @@ var Aufgabe9;
         server.innerHTML = responseText;
         console.log(server);
     }
-})(Aufgabe9 || (Aufgabe9 = {}));
+})(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=index.js.map

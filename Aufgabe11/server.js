@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
     console.log("Starting server");
-    let formData;
+    let daten;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
@@ -24,8 +24,8 @@ var Aufgabe11;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        formData = mongoClient.db("Test").collection("Students");
-        console.log("Connection to Database", formData != undefined);
+        daten = mongoClient.db("Test").collection("Students");
+        console.log("Connection to Database", daten != undefined);
     }
     function handleListen() {
         console.log("Listening");
@@ -38,10 +38,10 @@ var Aufgabe11;
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             if (url.pathname == "/Anlegen") {
-                formData.insertOne(url.query);
+                daten.insertOne(url.query);
             }
             if (url.pathname == "/Ausgeben") {
-                _response.write(JSON.stringify(await (formData.find().toArray())));
+                _response.write(JSON.stringify(await (daten.find().toArray())));
             }
         }
         _response.end();

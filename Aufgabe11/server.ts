@@ -6,7 +6,7 @@ export namespace Aufgabe11 {
 
   console.log("Starting server");
 
-  let formData: Mongo.Collection;
+  let daten: Mongo.Collection;
 
   let port: number = Number(process.env.PORT);
   if (!port)
@@ -29,8 +29,8 @@ export namespace Aufgabe11 {
     let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
-    formData = mongoClient.db("Test").collection("Students");
-    console.log("Connection to Database", formData != undefined);
+    daten = mongoClient.db("Test").collection("Students");
+    console.log("Connection to Database", daten != undefined);
   }
 
   function handleListen(): void {
@@ -49,11 +49,11 @@ export namespace Aufgabe11 {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
       if (url.pathname == "/Anlegen") {
-        formData.insertOne(url.query);
+        daten.insertOne(url.query);
       }
       if (url.pathname == "/Ausgeben") {
 
-        _response.write(JSON.stringify(await (formData.find().toArray())));
+        _response.write(JSON.stringify(await (daten.find().toArray())));
       }
     }
     _response.end();
