@@ -1,44 +1,52 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Aufgabe11 = void 0;
+exports.Aufgabe10 = void 0;
 const Http = require("http");
-const Url = require("url");
+const url = require("url");
 const Mongo = require("mongodb");
-var Aufgabe11;
-(function (Aufgabe11) {
-    let studentList;
-    let databaseUrl = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
+var Aufgabe10;
+(function (Aufgabe10) {
     console.log("Starting server");
+    //lokaler Server wird aufgerufen
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    connectToDatabase(databaseUrl);
     let server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);
     server.listen(port);
-    async function connectToDatabase(_url) {
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
-        studentList = mongoClient.db("Test").collection("Students");
-        console.log("Database connection", studentList != undefined);
-    }
     function handleListen() {
         console.log("Listening");
     }
+    let databaseURL = "mongodb+srv://jiaiesNewuser:jiaiesNewuserpw@gisgehtab.9jp9v.mongodb.net/Test?retryWrites=true&w=majority";
+    connect(databaseURL);
+    let orders;
+    async function connect(_url) {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        orders = mongoClient.db("Test").collection("Students");
+        console.log("Connection ", orders != undefined);
+    }
     async function handleRequest(_request, _response) {
+        console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
-            let url = Url.parse(_request.url, true);
-            if (url.pathname == "/senden")
-                studentList.insertOne(url.query);
-            else if (url.pathname == "/holen") {
-                _response.write(JSON.stringify(await studentList.find().toArray()));
+            let q = url.parse(_request.url, true);
+            //um sich die vorhandenen Daten anzeigen zu lassen
+            if (q.pathname == "/retrieve") {
+                let storage = orders.find();
+                let storageArray = await storage.toArray();
+                _response.write(JSON.stringify(storageArray));
             }
+            //um etwas hinzuzufügen
+            else if (q.pathname == "/store") {
+                orders.insertOne(q.query);
+            }
+            console.log("Hat geklappt!");
+            _response.end();
         }
-        _response.end();
     }
-})(Aufgabe11 = exports.Aufgabe11 || (exports.Aufgabe11 = {}));
+})(Aufgabe10 = exports.Aufgabe10 || (exports.Aufgabe10 = {}));
 //# sourceMappingURL=server.js.map

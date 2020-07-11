@@ -1,67 +1,33 @@
-import * as Http from "http";
-import * as Url from "url";
-import * as Mongo from "mongodb";
+namespace Aufgabe10 {
 
-export namespace Aufgabe11 {
-      
-      let studentList: Mongo.Collection;
-      let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
- 
-      console.log("Starting server");
-      
-      let port: number = Number(process.env.PORT);
-      
-      if (!port)
-        port = 8100;
+  let retrievebttn: HTMLButtonElement = <HTMLButtonElement> document.getElementById("retrieve");
+  retrievebttn.addEventListener("click", hdlRetrieveButton);
 
+  let storebttn: HTMLButtonElement = <HTMLButtonElement> document.getElementById("store");
+  storebttn.addEventListener("click", hdlStoreButton);
   
-      connectToDatabase(databaseUrl);
-     
-     
-      let server: Http.Server = Http.createServer();
-      server.addListener("request", handleRequest);
-      server.addListener("listening", handleListen);
-      server.listen(port);
+  
+  async function hdlRetrieveButton(_event: Event): Promise<void> {
+      let url: string = "https://jiaies2020.herokuapp.com/";
+      url += "retrieve";
       
-      
-      async function connectToDatabase(_url: string): Promise<void> {
-          let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
-          let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-          await mongoClient.connect();
+      let response: Response = await fetch(url);
+      let responseStr: string = await response.text();
 
-          studentList = mongoClient.db("Test").collection("Students");
-          console.log("Database connection", studentList != undefined);
-      }
+      //zur html hinzufügen
+      document.getElementById("content")!.innerHTML = responseStr;
+  }
 
+  async function hdlStoreButton(_event: Event): Promise<void> {
+      let formData: FormData = new FormData(document.forms[0]);
+      let url: string = "https://jiaies2020.herokuapp.com/";
+      // tslint:disable-next-line: no-any
+      let query: URLSearchParams = new URLSearchParams(<any>formData);
+      url += "store" + "?" + query.toString();      
 
-
-      function handleListen(): void {
-        console.log("Listening");
-      }
-
-      async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise <void> {
-        
-    
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-    
-        if (_request.url) {
-          let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-          
-          if (url.pathname == "/senden") 
-            studentList.insertOne(url.query);
-          
-
-             else if (url.pathname == "/holen") {
-          
-             
-              _response.write(JSON.stringify(await studentList.find().toArray()));
-          
-        } 
-        }
-    
-        _response.end();
-          }
-        
-        
-        }
+      await fetch(url); 
+            
+      let resetForm: HTMLFormElement = <HTMLFormElement>document.getElementById("form");
+      resetForm.reset();
+  }
+}

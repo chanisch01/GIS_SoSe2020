@@ -1,36 +1,60 @@
-namespace Aufgabe11 {
+import * as Http from "http";
+import * as url from "url";
+import * as Mongo from "mongodb";
 
-    let formData: FormData;
-    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
-    buttonsenden.addEventListener("click", buttonclicksenden);
+export namespace Aufgabe10 {
 
-    let buttonholen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("holen");
-    buttonholen.addEventListener("click", buttonclickholen);
+    console.log("Starting server");
 
+    let port: number = Number(process.env.PORT);
 
+    if (!port)
+        port = 8100;
 
-    let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
+    let server: Http.Server = Http.createServer();
+    server.addListener("request", handleRequest);
+    server.addListener("listening", handleListen); 
+    server.listen(port);
 
-
-    async function buttonclicksenden(): Promise<void> {
-        formData = new FormData(document.forms[0]);
-   
-        let url: string = "https://csgis2020.herokuapp.com";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "/senden" + "?" + query.toString();
-        await fetch(url);
+    function handleListen(): void {
+        console.log("Listening");
     }
 
-    async function buttonclickholen(): Promise<void> {
-        let url: string = "https://csgis2020.herokuapp.com";
+    let databaseURL: string = "mongodb+srv://jiaiesNewuser:jiaiesNewuserpw@gisgehtab.9jp9v.mongodb.net/Test?retryWrites=true&w=majority";
+    connect(databaseURL);
 
-        url = url + "/holen";
-       
-        let response: Response = await fetch(url);
-        let responseString: string = await response.text();
-        htmltext.innerHTML = responseString;
-        console.log("holen");
+    let orders: Mongo.Collection;
+
+    async function connect(_url: string): Promise<void> {
+        let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        orders = mongoClient.db("Test").collection("Students");
+        console.log("Connection ", orders != undefined);
     }
 
+    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
+        console.log("I hear voices!");
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
 
+        if (_request.url) {
+            let q: url.UrlWithParsedQuery = url.parse(_request.url, true);
+
+           
+            if (q.pathname == "/retrieve") {
+                let storage: Mongo.Cursor<string> = orders.find();
+                let storageArray: string [] = await storage.toArray();
+                _response.write(JSON.stringify(storageArray));
+            }
+
+            
+            else if (q.pathname == "/store") {
+                orders.insertOne(q.query);
+            }
+
+            console.log("Hat geklappt!");
+            _response.end();
+        }
+    }
 }
