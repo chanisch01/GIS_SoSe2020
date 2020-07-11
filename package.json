@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/chanisch01/GIS_SoSe2020#readme",
   "dependencies": {
-    "@types/node": "^14.0.14"
+    "@types/mongodb": "^3.5.25",
+    "@types/node": "^14.0.14",
+    "mongodb": "^3.5.9"
   }
 }
