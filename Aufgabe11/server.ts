@@ -7,7 +7,7 @@ export namespace Aufgabe11 {
   console.log("Starting server");
 
   let formData: Mongo.Collection;
-  let mongoUrl: string = "mongodb+srv://userdb:dkrjf5678@gis-ist-geil.qtn3c.mongodb.net/test?retryWrites=true&w=majority";
+  let mongoUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
 
  
   let port: number = Number(process.env.PORT);
@@ -43,7 +43,7 @@ export namespace Aufgabe11 {
       console.log("I hear voices!");
       _response.setHeader("content-type", "text/html; charset=utf-8");
       _response.setHeader("Access-Control-Allow-Origin", "*");
-      console.log("Pls work");
+      console.log("Hallo");
       
        
   
@@ -54,8 +54,7 @@ export namespace Aufgabe11 {
             formData.insertOne(url.query);     
         } 
           if (url.pathname == "/pull") {
-          //let urlJson: string = JSON.stringify(url.query);
-          //_response.write(urlJson); 
+         
          _response.write(JSON.stringify(await(formData.find().toArray())));
           }
       }
