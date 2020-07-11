@@ -1,32 +1,36 @@
 namespace Aufgabe11 {
 
-    let button1: HTMLButtonElement = <HTMLButtonElement> document.getElementById("button1");
-    button1.addEventListener("click", clickButton1);
+    let formData: FormData;
+    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
+    buttonsenden.addEventListener("click", buttonclicksenden);
 
-    let storebttn: HTMLButtonElement = <HTMLButtonElement> document.getElementById("store");
-    storebttn.addEventListener("click", clickButton2);
-    
-    
-    async function clickButton1 (_event: Event): Promise<void> {
-        let url: string = "https://csgis2020.herokuapp.com/";
-        url += "button1";
-        
+    let buttonholen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("holen");
+    buttonholen.addEventListener("click", buttonclickholen);
+
+
+
+    let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
+
+
+    async function buttonclicksenden(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+   
+        let url: string = "https://csgis2020.herokuapp.com";
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url = url + "/senden" + "?" + query.toString();
+        await fetch(url);
+    }
+
+    async function buttonclickholen(): Promise<void> {
+        let url: string = "https://csgis2020.herokuapp.com";
+
+        url = url + "/holen";
+       
         let response: Response = await fetch(url);
         let responseString: string = await response.text();
-
-       
-        document.getElementById("Inhaalt")!.innerHTML = responseString;
+        htmltext.innerHTML = responseString;
+        console.log("holen");
     }
 
-    async function clickButton2(_event: Event): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://csgis2020.herokuapp.com/";
-      
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url += "button2" + "?" + query.toString();      
 
-        await fetch(url); 
-              
-    
-    }
 }

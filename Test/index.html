@@ -1,38 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="index.js" defer></script>
-  <title>Kontaktdaten</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>Document</title>
 </head>
-
 <body>
-
-    <h1>Kontaktdaten</h1>
-
-    <label for="vname">Vorname:</label><br>
-    <input type="text" name="vname" id="vname"><br>
-
-    <label for="nname">Nachname:</label> <br>
-    <input type="text" name="nname" id="nname"><br>
-
-    <label for="telefon">Telefon:</label> <br>
-    <input type="text" name="telefon" id="Telefon"><br>
-
-    <label for="adresse">Adresse:</label> <br>
-    <input type="text" name="adresse" id="adresse"><br>
-
-    <input type="button" id="button1" value="Anlegen" > 
-    <input type="button" id="button1" value="Ausgeben" >
- 
-
-<br/>
-
-
-<div id="Inhalt"></div>
-
+    <h1>Formular</h1> <br>
+    <form>
+    <input type="text" name="name"> Nachname<br><br>
+    <input type="text" name="firstname"> Vorname<br><br>
+    <input type="text" name="registration">Registrierung<br><br>
+    <input type="text" name="wohnort">Wohnort<br><br>
+    <button type="button" id="speichern">Speichern</button>
+    <button type="button" id="holen">Datenbank holen</button>
+    </form>
+    <p id="text"></p>
 </body>
 </html>
