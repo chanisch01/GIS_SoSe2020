@@ -12,7 +12,7 @@ export namespace Aufgabe11 {
   if (!port)
     port = 8100;
 
-  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
+  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
 
   startServer();
   connectToDatabase(databaseUrl);
