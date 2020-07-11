@@ -6,27 +6,26 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
-    console.log("Starting server");
-    let daten;
-    let port = Number(process.env.PORT);
-    if (!port)
-        port = 8100;
     let databaseUrl = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
-    startServer();
-    connectToDatabase(databaseUrl);
-    function startServer() {
-        let server = Http.createServer();
-        server.addListener("request", handleRequest);
-        server.addListener("listening", handleListen);
-        server.listen(port);
-    }
+    let daten;
     async function connectToDatabase(_url) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        daten = mongoClient.db("Test").collection("Students");
-        console.log("Connection to Database", daten != undefined);
+        daten = mongoClient.db("Aufgabe11").collection("Daten");
+        if (daten != undefined) {
+            console.log("Connection to Database");
+        }
     }
+    connectToDatabase(databaseUrl);
+    console.log("Starting server");
+    let port = Number(process.env.PORT);
+    if (!port)
+        port = 8100;
+    let server = Http.createServer();
+    server.addListener("request", handleRequest);
+    server.addListener("listening", handleListen);
+    server.listen(port);
     function handleListen() {
         console.log("Listening");
     }

@@ -4,34 +4,32 @@ import * as Mongo from "mongodb";
 
 export namespace Aufgabe11 {
 
-  console.log("Starting server");
-
+  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
   let daten: Mongo.Collection;
 
+  async function connectToDatabase(_url: string): Promise<void> {
+
+    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect();
+    daten = mongoClient.db("Aufgabe11").collection("Daten");
+    if (daten != undefined) {
+      console.log("Connection to Database");
+    }
+  }
+
+  connectToDatabase(databaseUrl);
+
+  console.log("Starting server");
   let port: number = Number(process.env.PORT);
   if (!port)
     port = 8100;
 
-  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
-
-  startServer();
-  connectToDatabase(databaseUrl);
-
-  function startServer(): void {
-
-    let server: Http.Server = Http.createServer();
-    server.addListener("request", handleRequest);
-    server.addListener("listening", handleListen);
-    server.listen(port);
-  }
-
-  async function connectToDatabase(_url: string): Promise<void> {
-    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-    await mongoClient.connect();
-    daten = mongoClient.db("Test").collection("Students");
-    console.log("Connection to Database", daten != undefined);
-  }
+  let server: Http.Server = Http.createServer();
+  server.addListener("request", handleRequest);
+  server.addListener("listening", handleListen);
+  server.listen(port);
+  
 
   function handleListen(): void {
     console.log("Listening");
