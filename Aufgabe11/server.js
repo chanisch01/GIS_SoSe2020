@@ -34,13 +34,13 @@ var Aufgabe11;
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        console.log("Hallo");
+        console.log("jsonString");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/datenbank") {
+            if (url.pathname == "/Anlegen") {
                 formData.insertOne(url.query);
             }
-            if (url.pathname == "/pull") {
+            if (url.pathname == "/Ausgeben") {
                 _response.write(JSON.stringify(await (formData.find().toArray())));
             }
         }
