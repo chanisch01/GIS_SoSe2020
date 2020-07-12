@@ -2,18 +2,16 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 
-export namespace Aufgabe11 {
+export namespace Test1 {
 
   let collection: Mongo.Collection;
   let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
 
-  console.log("Starting server");
-
   let port: number = Number(process.env.PORT);
-
   if (!port)
     port = 8100;
 
+  console.log("Starting server");
 
   connectToDatabase(databaseUrl);
 
@@ -37,19 +35,17 @@ export namespace Aufgabe11 {
   }
 
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-
-
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-      if (url.pathname == "/Daten senden")
+      if (url.pathname == "/absenden")
         collection.insertOne(url.query);
 
 
-      else if (url.pathname == "/Daten bekommen") {
+      else if (url.pathname == "/bekommen") {
 
 
         _response.write(JSON.stringify(await collection.find().toArray()));

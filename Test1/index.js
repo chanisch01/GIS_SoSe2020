@@ -2,21 +2,21 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     let formData;
-    let buttonsenden = document.getElementById("Daten senden");
-    buttonsenden.addEventListener("click", buttonclicksenden);
+    let buttonabsenden = document.getElementById("Daten senden");
+    buttonabsenden.addEventListener("click", buttonclickabsenden);
     let buttonbekommen = document.getElementById("Daten bekommen");
     buttonbekommen.addEventListener("click", buttonclickbekommen);
     let htmltext = document.getElementById("text");
-    async function buttonclicksenden() {
+    async function buttonclickabsenden() {
         formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         let query = new URLSearchParams(formData);
-        url = url + "/Daten senden" + "?" + query.toString();
+        url = url + "/absenden" + "?" + query.toString();
         await fetch(url);
     }
     async function buttonclickbekommen() {
         let url = "https://csgis2020.herokuapp.com";
-        url = url + "/Daten bekommen";
+        url = url + "/bekommen";
         let response = await fetch(url);
         let responseString = await response.text();
         htmltext.innerHTML = responseString;

@@ -6,8 +6,6 @@ namespace Aufgabe11 {
     let buttonholen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("holen");
     buttonholen.addEventListener("click", buttonclickholen);
 
-   
-
     let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
 
 
