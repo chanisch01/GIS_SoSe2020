@@ -8,15 +8,11 @@ var Aufgabe11;
 (function (Aufgabe11) {
     let studentList;
     let databaseUrl = "mongodb+srv://gisuser2020:dv1Y6ayeEBvevpAf@marcelgis.1jm82.mongodb.net/Test?retryWrites=true&w=majority";
-    //let databaseUrl: string = "mongodb://localhost: 27017";
     console.log("Starting server");
-    //Port Number wird unter port gespeichert
     let port = Number(process.env.PORT);
-    //Wenn port nicht erreichbar, wird Wert 8100 vergeben
     if (!port)
         port = 8100;
     connectToDatabase(databaseUrl);
-    //Server und Listener erstellen
     let server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);
@@ -31,7 +27,6 @@ var Aufgabe11;
     function handleListen() {
         console.log("Listening");
     }
-    //Server Daten erhalten
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
@@ -46,3 +41,4 @@ var Aufgabe11;
         _response.end();
     }
 })(Aufgabe11 = exports.Aufgabe11 || (exports.Aufgabe11 = {}));
+//# sourceMappingURL=server.js.map

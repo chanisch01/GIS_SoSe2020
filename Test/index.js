@@ -26,3 +26,4 @@ var Aufgabe11;
         console.log("holen");
     }
 })(Aufgabe11 || (Aufgabe11 = {}));
+//# sourceMappingURL=index.js.map
