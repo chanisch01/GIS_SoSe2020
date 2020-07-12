@@ -32,9 +32,9 @@ var Aufgabe11;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/senden")
+            if (url.pathname == "/Daten senden")
                 collection.insertOne(url.query);
-            else if (url.pathname == "/holen") {
+            else if (url.pathname == "/Daten bekommen") {
                 _response.write(JSON.stringify(await collection.find().toArray()));
             }
         }

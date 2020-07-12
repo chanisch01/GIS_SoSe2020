@@ -32,13 +32,9 @@ export namespace Aufgabe11 {
     console.log("Database connection ", collection != undefined);
   }
 
-
-
   function handleListen(): void {
     console.log("Listening");
   }
-
-
 
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
@@ -49,11 +45,11 @@ export namespace Aufgabe11 {
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-      if (url.pathname == "/senden")
+      if (url.pathname == "/Daten senden")
         collection.insertOne(url.query);
 
 
-      else if (url.pathname == "/holen") {
+      else if (url.pathname == "/Daten bekommen") {
 
 
         _response.write(JSON.stringify(await collection.find().toArray()));

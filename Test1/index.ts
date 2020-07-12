@@ -1,10 +1,11 @@
 namespace Aufgabe11 {
     let formData: FormData;
-    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
+
+    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Daten senden");
     buttonsenden.addEventListener("click", buttonclicksenden);
 
-    let buttonholen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("holen");
-    buttonholen.addEventListener("click", buttonclickholen);
+    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Daten bekommen");
+    buttonbekommen.addEventListener("click", buttonclickbekommen);
 
    
 
@@ -16,7 +17,7 @@ namespace Aufgabe11 {
      
         let url: string = "https://csgis2020.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "/senden" + "?" + query.toString();
+        url = url + "/Daten senden" + "?" + query.toString();
         await fetch(url);
         
         
@@ -24,15 +25,15 @@ namespace Aufgabe11 {
     }
 
 
-    async function buttonclickholen(): Promise<void> {
+    async function buttonclickbekommen(): Promise<void> {
         let url: string = "https://csgis2020.herokuapp.com";
     
-        url = url + "/holen";
+        url = url + "/Daten bekommen";
       
         let response: Response = await fetch(url);
         let responseString: string = await response.text();
         htmltext.innerHTML = responseString;
-        console.log("holen");
+        console.log("Daten bekommen");
     }
 
 
