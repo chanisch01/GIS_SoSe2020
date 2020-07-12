@@ -17,7 +17,7 @@ var Aufgabe11;
         let url = "https://csgis2020.herokuapp.com";
         let response = await fetch(url);
         let responseText = await response.text();
-        document.getElementById("output").innerHTML = responseText;
+        document.getElementById("server").innerHTML = responseText;
     }
 })(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=index.js.map
