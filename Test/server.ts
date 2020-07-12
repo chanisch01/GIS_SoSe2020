@@ -1,33 +1,62 @@
-namespace Aufgabe10 {
+import * as Http from "http";
+import * as Url from "url";
+import * as Mongo from "mongodb";
 
-  let retrievebttn: HTMLButtonElement = <HTMLButtonElement> document.getElementById("retrieve");
-  retrievebttn.addEventListener("click", hdlRetrieveButton);
+export namespace Aufgabe11 {
 
-  let storebttn: HTMLButtonElement = <HTMLButtonElement> document.getElementById("store");
-  storebttn.addEventListener("click", hdlStoreButton);
-  
-  
-  async function hdlRetrieveButton(_event: Event): Promise<void> {
-      let url: string = "https://jiaies2020.herokuapp.com/";
-      url += "retrieve";
-      
-      let response: Response = await fetch(url);
-      let responseStr: string = await response.text();
+  let collection: Mongo.Collection;
+  let _url: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
 
-      //zur html hinzufügen
-      document.getElementById("content")!.innerHTML = responseStr;
+  let port: number | string | undefined = Number(process.env.PORT);
+
+  if (!port)
+    port = 8100;
+ 
+  startServer(port);
+  dataBase();
+
+
+  function startServer(_port: number | string): void {
+    let server: Http.Server = Http.createServer();
+    server.addListener("request", handleRequest);
+    server.listen(port);
+  }
+ 
+
+  async function dataBase(): Promise<void> {
+    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect();
+    collection = mongoClient.db("Aufgabe11").collection("Daten");
+    if (collection) {
+      console.log("Connect to Database!");
+    }
   }
 
-  async function hdlStoreButton(_event: Event): Promise<void> {
-      let formData: FormData = new FormData(document.forms[0]);
-      let url: string = "https://jiaies2020.herokuapp.com/";
-      // tslint:disable-next-line: no-any
-      let query: URLSearchParams = new URLSearchParams(<any>formData);
-      url += "store" + "?" + query.toString();      
+  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
+    console.log("I hear voices!");
+    _response.setHeader("content-type", "text/html; charset=utf-8");
+    _response.setHeader("Access-Control-Allow-Origin", "*");
 
-      await fetch(url); 
-            
-      let resetForm: HTMLFormElement = <HTMLFormElement>document.getElementById("form");
-      resetForm.reset();
+    if (_request.url) {
+      let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+
+      if (url.pathname == "/push") {
+        collection.insertOne(url.query);
+      }
+
+      else if (url.pathname == "/pull") {
+        try {
+          let findings: Mongo.Cursor<string> = collection.find();
+          let findingsArray: string[] = await findings.toArray();
+          _response.write(JSON.stringify(findingsArray));
+         
+        } catch (error) {
+          console.log(error);
+        }
+
+      }
+    }
+    _response.end();
   }
 }

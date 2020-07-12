@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<!Doctype html>
+<html lang="de">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="index.js" defer></script>
-  <title>Formular</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="index.js" defer></script>
+    
+    <title>Kontaktdaten</title>
+
 </head>
 
 <body>
 
-  <h2>Kontaktdaten</h2>
+    <form action="https://csgis2020.herokuapp.com" method="GET">
 
-  <form id="form">
-    <label for="name">Name:</label><br>
-    <input type="text" id="nname" name="nname"><br>
+        <h1>Kontaktdaten</h1>
 
-    <label for="name">Vorname:</label><br>
-    <input type="text" id="vname" name="vname"><br>
+        <label for="vname">Vorname:</label> <br>
+        <input type="text" name="vname" id="vname"><br>
 
-    <label for="number">registration:</label><br>
-    <input type="text" id="registration" name="registration"><br>
+        <label for="nname">Nachname:</label> <br>
+        <input type="text" name="nname" id="nname"><br>
+    
+        <label for="registration">Telefon:</label> <br>
+        <input type="number" name="registration" id="Registration"><br>
 
-    <input type="button" id="retrieve" value="pull" > 
-    <input type="reset" id="store" value="push" >
-  </form> 
+        <label for="adresse">Adresse:</label> <br>
+        <input type="text" name="adresse" id="adresse"><br>
 
-<br/>
-<br/>
-
-<div id="content"></div>
-
+        <input type="button" value="Push to DB" id="push" name="push">
+        <input type="button" value="Pull from DB" id="pull" name="pull">
+        
+    </form>
+    <p id="ausgabe"></p>
 </body>
+
 </html>
