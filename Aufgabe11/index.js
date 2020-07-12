@@ -5,7 +5,6 @@ var Aufgabe11;
     buttonAbschicken.addEventListener("click", clickAbschicken);
     let buttonErhalten = document.getElementById("datenErhalten");
     buttonErhalten.addEventListener("click", clickErhalten);
-    let htmltext = document.getElementById("text");
     async function clickAbschicken() {
         let form = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com/";

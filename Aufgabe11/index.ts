@@ -6,9 +6,7 @@ namespace Aufgabe11 {
     let buttonErhalten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("datenErhalten");
     buttonErhalten.addEventListener("click", clickErhalten);
 
-    let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
-
-
+   
     async function clickAbschicken(): Promise<void> {
         let form: FormData = new FormData(document.forms[0]);
         let url: string = "https://csgis2020.herokuapp.com/";

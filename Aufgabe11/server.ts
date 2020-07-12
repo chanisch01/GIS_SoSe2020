@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe11 {
 
   let collection: Mongo.Collection;
-  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
+  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
   connectToDatabase(databaseUrl);
 
   console.log("Starting Server");
@@ -25,7 +25,7 @@ export namespace Aufgabe11 {
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
 
-    collection = mongoClient.db("Aufgabe").collection("Daten");
+    collection = mongoClient.db("Test").collection("Students");
   }
 
   function handleListen(): void {
