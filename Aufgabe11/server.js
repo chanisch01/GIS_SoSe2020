@@ -8,35 +8,34 @@ var Aufgabe11;
 (function (Aufgabe11) {
     let collection;
     let databaseUrl = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
+    connectToDatabase(databaseUrl);
+    console.log("Starting Server");
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    function startServer(_port) {
-        let server = Http.createServer();
-        server.addListener("request", handleRequest);
-        server.addListener("listening", handleListen);
-        server.listen(_port);
-    }
-    function handleListen() {
-        console.log("Listening");
-    }
-    startServer(port);
-    connectToDatabase(databaseUrl);
+    let server = Http.createServer();
+    server.addListener("request", handleRequest);
+    server.addListener("listening", handleListen);
+    server.listen(port);
     async function connectToDatabase(_url) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("Aufgabe").collection("Daten");
-        console.log("Database connection ", collection != undefined);
+    }
+    function handleListen() {
+        console.log("Listening");
     }
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/abschicken")
+            let pathname = url.pathname;
+            if (pathname == "/abschicken") {
                 collection.insertOne(url.query);
-            else if (url.pathname == "/erhalten") {
+            }
+            else if (pathname == "/erhalten") {
                 _response.write(JSON.stringify(await collection.find().toArray()));
             }
         }

@@ -6,36 +6,38 @@
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="index.js" defer></script>
-    
+
     <title>Kontaktdaten</title>
 
 </head>
 
 <body>
+    <h1>Deine Daten</h1>
 
-    <form action="https://csgis2020.herokuapp.com" method="GET">
 
-        <h1>Kontaktdaten</h1>
+    <form>
 
         <label for="vname">Vorname:</label> <br>
-        <input type="text" name="vorname" id="vorname"><br>
+        <input type="text" name="vorname"><br>
 
         <label for="name">Nachname:</label> <br>
-        <input type="text" name="name" id="name"><br>
-    
+        <input type="text" name="name"><br>
+
         <label for="registration">Matrikelnummer:</label> <br>
-        <input type="number" name="registration" id="Registration"><br>
+        <input type="number" name="registration"><br>
 
 
-        <button type="button" id="abschicken">Absenden</button>
-        <button type="button" id="erhalten">Daten bekommen</button>
-        
-    <br>
+        <button type="button" id="datenAbschicken">Absenden</button>
+        <button type="button" id="datenErhalten">Daten erhalten</button>
+
+        <br>
 
     </form>
 
-    <p id="text"></p>
-    
+    <h3>Datenbank:</h3>
+
+    <p id="server"></p>
+
 </body>
 
 </html>

@@ -1,26 +1,27 @@
 "use strict";
 var Aufgabe11;
 (function (Aufgabe11) {
-    let formData;
-    let buttonabschicken = document.getElementById("abschicken");
-    buttonabschicken.addEventListener("click", buttonclickabschicken);
-    let buttonerhalten = document.getElementById("erhalten");
-    buttonerhalten.addEventListener("click", buttonclickerhalten);
+    let buttonAbschicken = document.getElementById("datenAbschicken");
+    buttonAbschicken.addEventListener("click", clickAbschicken);
+    let buttonErhalten = document.getElementById("datenErhalten");
+    buttonErhalten.addEventListener("click", clickErhalten);
     let htmltext = document.getElementById("text");
-    async function buttonclickabschicken() {
-        formData = new FormData(document.forms[0]);
+    async function clickAbschicken() {
+        let form = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com/";
-        let query = new URLSearchParams(formData);
-        url = url + "/abschicken" + "?" + query.toString();
+        let query = new URLSearchParams(form);
+        url += "/abschicken" + "?" + query.toString();
         await fetch(url);
+        console.log("Abschicken");
     }
-    async function buttonclickerhalten() {
-        let url = "https://csgis2020/.herokuapp.com";
-        url = url + "/erhalten";
-        let response = await fetch(url);
-        let responseString = await response.text();
-        htmltext.innerHTML = responseString;
-        console.log("erhalten");
+    async function clickErhalten() {
+        let formData = new FormData(document.forms[0]);
+        let query = new URLSearchParams(formData);
+        let url = "https://csgis2020.herokuapp.com";
+        url += "/erhalten" + "?" + query.toString();
+        let response = await fetch(url, { method: "get" });
+        let response1 = await response.text();
+        document.getElementById("server").innerHTML = response1;
     }
 })(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=index.js.map
