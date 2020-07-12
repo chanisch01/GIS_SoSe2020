@@ -7,35 +7,36 @@ const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
     let collection;
-    let _url = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
+    let databaseUrl = "mongodb+srv://gisuser2020:dv1Y6ayeEBvevpAf@marcelgis.1jm82.mongodb.net/Test?retryWrites=true&w=majority";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    startServer(port);
-    dataBase();
     function startServer(_port) {
         let server = Http.createServer();
         server.addListener("request", handleRequest);
-        server.listen(port);
+        server.addListener("listening", handleListen);
+        server.listen(_port);
     }
-    async function dataBase() {
+    function handleListen() {
+        console.log("Listening");
+    }
+    startServer(port);
+    connectToDatabase(databaseUrl);
+    async function connectToDatabase(_url) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        collection = mongoClient.db("Aufgabe11").collection("Daten");
-        if (collection) {
-            console.log("Connect to Database!");
-        }
+        collection = mongoClient.db("Test").collection("Students");
+        console.log("Database connection ", collection != undefined);
     }
     async function handleRequest(_request, _response) {
-        console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/Absenden")
+            if (url.pathname == "/abschicken")
                 collection.insertOne(url.query);
-            else if (url.pathname == "/Bekommen") {
+            else if (url.pathname == "/erhalten") {
                 _response.write(JSON.stringify(await collection.find().toArray()));
             }
         }
