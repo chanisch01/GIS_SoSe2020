@@ -2,7 +2,7 @@ html {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#buttonabsenden {
+#datensenden {
     border-radius: 1px solid grey;
     background-color: grey;
     margin-top: 20px;
@@ -10,7 +10,7 @@ html {
     color: white;
 }
 
-#buttonbekommen {
+#datenbekommen {
     border-radius: 1px solid grey;
     background-color: grey;
     margin-top: 20px;
