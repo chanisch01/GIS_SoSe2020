@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe11 {
 
   let collection: Mongo.Collection;
-  let _url: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
+  let _url: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/AUfgabe11?retryWrites=true&w=majority";
 
   let port: number | string | undefined = Number(process.env.PORT);
 

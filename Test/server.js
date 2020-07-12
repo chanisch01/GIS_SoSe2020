@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
     let collection;
-    let _url = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
+    let _url = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/AUfgabe11?retryWrites=true&w=majority";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
