@@ -1,5 +1,6 @@
 namespace Aufgabe11 {
     let formData: FormData;
+    
     let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
     buttonsenden.addEventListener("click", buttonclicksenden);
 
