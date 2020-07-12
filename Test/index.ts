@@ -1,28 +1,37 @@
 namespace Aufgabe11 {
 
-    let buttonAbsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Absenden");
-    buttonAbsenden.addEventListener("click", buttonclickabsenden);
+    let formData: FormData;
 
-    let buttonBekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Bekommen");
-    buttonBekommen.addEventListener("click", buttonclickbekommen);
+    let buttonabsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("senden");
+    buttonabsenden.addEventListener("click", buttonclickabsenden);
 
-    let server: HTMLElement = <HTMLElement>document.getElementById("server");
+    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bekommen");
+    buttonbekommen.addEventListener("click", buttonclickbekommen);
+
+   
+
+    let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
+
 
     async function buttonclickabsenden(): Promise<void> {
-        let form: FormData = new FormData(document.forms[0]);
-        let query: URLSearchParams = new URLSearchParams(<any>form);
+        formData = new FormData(document.forms[0]);
+ 
         let url: string = "https://csgis2020.herokuapp.com";
-        url = url + "/absenden" + "?" + query.toString();
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url = url + "/senden" + "?" + query.toString();
         await fetch(url);
-
     }
+
     async function buttonclickbekommen(): Promise<void> {
         let url: string = "https://csgis2020.herokuapp.com";
         url = url + "/bekommen";
-        let serverResponse: Response = await fetch(url);
-        let stringResponse: string = await serverResponse.text();
-        server.innerHTML = stringResponse;
-
+    
+        let response: Response = await fetch(url);
+        let responseString: string = await response.text();
+        htmltext.innerHTML = responseString;
         console.log("bekommen");
     }
+
+
+}
 }
