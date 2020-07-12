@@ -6,8 +6,8 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
-    let studentList;
-    let databaseUrl = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Test?retryWrites=true&w=majority";
+    let collection;
+    let databaseUrl = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
     console.log("Starting server");
     let port = Number(process.env.PORT);
     if (!port)
@@ -21,8 +21,8 @@ var Aufgabe11;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        studentList = mongoClient.db("Test").collection("Students");
-        console.log("Database connection ", studentList != undefined);
+        collection = mongoClient.db("Aufgabe").collection("Daten");
+        console.log("Database connection ", collection != undefined);
     }
     function handleListen() {
         console.log("Listening");
@@ -33,9 +33,9 @@ var Aufgabe11;
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             if (url.pathname == "/senden")
-                studentList.insertOne(url.query);
+                collection.insertOne(url.query);
             else if (url.pathname == "/holen") {
-                _response.write(JSON.stringify(await studentList.find().toArray()));
+                _response.write(JSON.stringify(await collection.find().toArray()));
             }
         }
         _response.end();

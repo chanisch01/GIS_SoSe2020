@@ -13,7 +13,7 @@ namespace Aufgabe11 {
 
     async function buttonclicksenden(): Promise<void> {
         formData = new FormData(document.forms[0]);
-        //let url: string = "http://localhost:8100";
+     
         let url: string = "https://csgis2020.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/senden" + "?" + query.toString();
@@ -26,10 +26,9 @@ namespace Aufgabe11 {
 
     async function buttonclickholen(): Promise<void> {
         let url: string = "https://csgis2020.herokuapp.com";
-        
-        //let url: string = "http://localhost:8100";
+    
         url = url + "/holen";
-        //BUGS gefixt
+      
         let response: Response = await fetch(url);
         let responseString: string = await response.text();
         htmltext.innerHTML = responseString;
