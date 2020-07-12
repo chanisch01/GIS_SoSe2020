@@ -1,22 +1,20 @@
 namespace Aufgabe11 {
     let formData: FormData;
+    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
+    buttonsenden.addEventListener("click", buttonclicksenden);
 
-    let buttonabsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("absenden");
-    buttonabsenden.addEventListener("click", buttonclickabsenden);
-
-    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bekommen");
-    buttonbekommen.addEventListener("click", buttonclickbekommen);
-
-   
+    let buttonholen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("holen");
+    buttonholen.addEventListener("click", buttonclickholen);
 
     let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
 
 
-    async function buttonclickabsenden(): Promise<void> {
+    async function buttonclicksenden(): Promise<void> {
         formData = new FormData(document.forms[0]);
+       
         let url: string = "https://csgis2020.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "/absenden" + "?" + query.toString();
+        url = url + "/senden" + "?" + query.toString();
         await fetch(url);
         
         
@@ -24,13 +22,16 @@ namespace Aufgabe11 {
     }
 
 
-    async function buttonclickbekommen(): Promise<void> {
+    async function buttonclickholen(): Promise<void> {
         let url: string = "https://csgis2020.herokuapp.com";
-        url = url + "/bekommen";
+        
+        
+        url = url + "/holen";
+        
         let response: Response = await fetch(url);
         let responseString: string = await response.text();
         htmltext.innerHTML = responseString;
-        console.log("Daten bekommen");
+        console.log("holen");
     }
 
 
