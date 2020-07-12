@@ -11,7 +11,7 @@ export namespace Aufgabe11 {
 
   if (!port)
     port = 8100;
- 
+
   startServer(port);
   dataBase();
 
@@ -21,7 +21,7 @@ export namespace Aufgabe11 {
     server.addListener("request", handleRequest);
     server.listen(port);
   }
- 
+
 
   async function dataBase(): Promise<void> {
     let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -41,22 +41,18 @@ export namespace Aufgabe11 {
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-      if (url.pathname == "/push") {
-        collection.insertOne(url.query);
-      }
+      if (url.pathname == "/Absenden")
+       collection.insertOne(url.query);
 
-      else if (url.pathname == "/pull") {
-        try {
-          let findings: Mongo.Cursor<string> = collection.find();
-          let findingsArray: string[] = await findings.toArray();
-          _response.write(JSON.stringify(findingsArray));
-         
-        } catch (error) {
-          console.log(error);
-        }
+
+      else if (url.pathname == "/Bekommen") {
+
+
+        _response.write(JSON.stringify(await collection.find().toArray()));
 
       }
     }
+
     _response.end();
   }
 }

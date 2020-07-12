@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
     let collection;
-    let _url = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe11?retryWrites=true&w=majority";
+    let _url = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
@@ -33,18 +33,10 @@ var Aufgabe11;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/push") {
+            if (url.pathname == "/Absenden")
                 collection.insertOne(url.query);
-            }
-            else if (url.pathname == "/pull") {
-                try {
-                    let findings = collection.find();
-                    let findingsArray = await findings.toArray();
-                    _response.write(JSON.stringify(findingsArray));
-                }
-                catch (error) {
-                    console.log(error);
-                }
+            else if (url.pathname == "/Bekommen") {
+                _response.write(JSON.stringify(await collection.find().toArray()));
             }
         }
         _response.end();
