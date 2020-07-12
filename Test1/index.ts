@@ -1,10 +1,10 @@
 namespace Aufgabe11 {
     let formData: FormData;
 
-    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Daten senden");
+    let buttonsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button1");
     buttonsenden.addEventListener("click", buttonclicksenden);
 
-    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Daten bekommen");
+    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button2");
     buttonbekommen.addEventListener("click", buttonclickbekommen);
 
    

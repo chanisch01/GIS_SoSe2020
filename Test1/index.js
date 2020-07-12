@@ -2,9 +2,9 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     let formData;
-    let buttonsenden = document.getElementById("Daten senden");
+    let buttonsenden = document.getElementById("button1");
     buttonsenden.addEventListener("click", buttonclicksenden);
-    let buttonbekommen = document.getElementById("Daten bekommen");
+    let buttonbekommen = document.getElementById("button2");
     buttonbekommen.addEventListener("click", buttonclickbekommen);
     let htmltext = document.getElementById("text");
     async function buttonclicksenden() {
