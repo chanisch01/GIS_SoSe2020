@@ -1,34 +1,26 @@
 "use strict";
 var Aufgabe11;
 (function (Aufgabe11) {
-    let buttonHTML = document.getElementById("Anlegen");
-    buttonHTML.addEventListener("click", clickHTML);
-    let buttonJSON = document.getElementById("Ausgeben");
-    buttonJSON.addEventListener("click", clickJSON);
-    let server = document.getElementById("server");
-    async function clickHTML() {
-        let formData = new FormData(document.forms[0]);
+    let formData;
+    let buttonabsenden = document.getElementById("senden");
+    buttonabsenden.addEventListener("click", buttonclickabsenden);
+    let buttonbekommen = document.getElementById("bekommen");
+    buttonbekommen.addEventListener("click", buttonclickbekommen);
+    let htmltext = document.getElementById("text");
+    async function buttonclickabsenden() {
+        formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
-        url += "/html";
         let query = new URLSearchParams(formData);
-        url = url + "?" + query.toString();
-        let response = await fetch(url);
-        let responseText = await response.text();
-        server.innerHTML = responseText;
+        url = url + "/senden" + "?" + query.toString();
+        await fetch(url);
     }
-    async function clickJSON() {
-        let formData = new FormData(document.forms[0]);
+    async function buttonclickbekommen() {
         let url = "https://csgis2020.herokuapp.com";
-        url += "/json";
-        let query = new URLSearchParams(formData);
-        url = url + "?" + query.toString();
+        url = url + "/bekommen";
         let response = await fetch(url);
-        let responseText = await response.text();
-        console.log(responseText);
-        let responseJSON = JSON.parse(responseText);
-        console.log(responseJSON);
-        server.innerHTML = responseText;
-        console.log(server);
+        let responseString = await response.text();
+        htmltext.innerHTML = responseString;
+        console.log("bekommen");
     }
 })(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=index.js.map

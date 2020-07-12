@@ -1,40 +1,37 @@
 namespace Aufgabe11 {
 
-    let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Anlegen");
-    buttonHTML.addEventListener("click", clickHTML);
+    let formData: FormData;
 
-    let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Ausgeben");
-    buttonJSON.addEventListener("click", clickJSON);
+    let buttonabsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("senden");
+    buttonabsenden.addEventListener("click", buttonclickabsenden);
 
-    let server: HTMLElement = <HTMLElement>document.getElementById("server");
+    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bekommen");
+    buttonbekommen.addEventListener("click", buttonclickbekommen);
 
-    async function clickHTML(): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
+   
+
+    let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
+
+
+    async function buttonclickabsenden(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+ 
         let url: string = "https://csgis2020.herokuapp.com";
-        url += "/html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "?" + query.toString();
-
-        let response: Response = await fetch(url);
-        let responseText: string = await response.text();
-
-
-        server.innerHTML = responseText;
-
+        url = url + "/senden" + "?" + query.toString();
+        await fetch(url);
     }
-    async function clickJSON(): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
+
+    async function buttonclickbekommen(): Promise<void> {
         let url: string = "https://csgis2020.herokuapp.com";
-        url += "/json";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "?" + query.toString();
+        url = url + "/bekommen";
+    
         let response: Response = await fetch(url);
-        let responseText: string = await response.text();
-        console.log(responseText);
-        let responseJSON: JSON = JSON.parse(responseText);
-
-        console.log(responseJSON);
-        server.innerHTML = responseText;
-        console.log(server);
+        let responseString: string = await response.text();
+        htmltext.innerHTML = responseString;
+        console.log("bekommen");
     }
+
+
+}
 }
