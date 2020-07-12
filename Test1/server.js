@@ -34,9 +34,9 @@ var Aufgabe11;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/absenden")
+            if (url.pathname == "/abschicken")
                 collection.insertOne(url.query);
-            else if (url.pathname == "/abspeichern") {
+            else if (url.pathname == "/erhalten") {
                 _response.write(JSON.stringify(await collection.find().toArray()));
             }
         }

@@ -47,11 +47,11 @@ export namespace Aufgabe11 {
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-      if (url.pathname == "/absenden")
+      if (url.pathname == "/abschicken")
         collection.insertOne(url.query);
 
 
-      else if (url.pathname == "/abspeichern") {
+      else if (url.pathname == "/erhalten") {
 
 
         _response.write(JSON.stringify(await collection.find().toArray()));

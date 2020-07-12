@@ -2,30 +2,34 @@ namespace Aufgabe11 {
 
     let formData: FormData;
 
-    let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send");
-    buttonHTML.addEventListener("click", clickAbsenden);
+    let buttonabschicken: HTMLButtonElement = <HTMLButtonElement>document.getElementById("abschicken");
+    buttonabschicken.addEventListener("click", buttonclickabschicken);
 
-    let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
-    buttonJSON.addEventListener("click", clickAnfordern);
+    let buttonerhalten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("erhalten");
+    buttonerhalten.addEventListener("click", buttonclickerhalten);
 
     let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
-   
-    async function clickAbsenden(): Promise<void> {
 
-        let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://csgis2020.herokuapp.com";
+
+    async function buttonclickabschicken(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+
+        let url: string = "https://csgis2020.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url += "/absenden" + "?" + query.toString();
+        url = url + "/abschicken" + "?" + query.toString();
         await fetch(url);
     }
 
-    async function clickAnfordern(): Promise<void> {
-        
-        let url: string = "https://csgis2020.herokuapp.com";
-        url = url + "/get";
+
+    async function buttonclickerhalten(): Promise<void> {
+        let url: string = "https://csgis2020/.herokuapp.com";
+        url = url + "/erhalten";
+
         let response: Response = await fetch(url);
-        let responseText: string = await response.text();
-        htmltext.innerHTML = responseText;
-        console.log("holen");
+        let responseString: string = await response.text();
+        htmltext.innerHTML = responseString;
+        console.log("erhalten");
     }
+
+
 }
