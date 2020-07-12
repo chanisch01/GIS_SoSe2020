@@ -1,37 +1,40 @@
 namespace Aufgabe11 {
 
-    let formData: FormData;
+let buttonSenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonSenden");
+buttonSenden.addEventListener("click", clickSenden);
 
-    let buttonabsenden: HTMLButtonElement = <HTMLButtonElement>document.getElementById("senden");
-    buttonabsenden.addEventListener("click", buttonclickabsenden);
+let buttonBekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonBekommen");
+buttonBekommen.addEventListener("click", clickBekommen);
 
-    let buttonbekommen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bekommen");
-    buttonbekommen.addEventListener("click", buttonclickbekommen);
+let server: HTMLElement = <HTMLElement>document.getElementById("server");
 
-   
+async function clickSenden(): Promise<void> {
+    let formData: FormData = new FormData(document.forms[0]);
+    let url: string = "https://csgis2020.herokuapp.com";
+    url += "/html";
+    let query: URLSearchParams = new URLSearchParams(<any>formData);
+    url = url + "?" + query.toString();
 
-    let htmltext: HTMLElement = <HTMLElement>document.getElementById("text");
-
-
-    async function buttonclickabsenden(): Promise<void> {
-        formData = new FormData(document.forms[0]);
- 
-        let url: string = "https://csgis2020.herokuapp.com";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "/senden" + "?" + query.toString();
-        await fetch(url);
-    }
-
-    async function buttonclickbekommen(): Promise<void> {
-        let url: string = "https://csgis2020.herokuapp.com";
-        url = url + "/bekommen";
-    
-        let response: Response = await fetch(url);
-        let responseString: string = await response.text();
-        htmltext.innerHTML = responseString;
-        console.log("bekommen");
-    }
+    let response: Response = await fetch(url);
+    let responseText: string = await response.text();
 
 
+    server.innerHTML = responseText;
+
+}
+async function clickBekommen(): Promise<void> {
+    let formData: FormData = new FormData(document.forms[0]);
+    let url: string = "https://csgis2020.herokuapp.com";
+    url += "/json";
+    let query: URLSearchParams = new URLSearchParams(<any>formData);
+    url = url + "?" + query.toString();
+    let response: Response = await fetch(url);
+    let responseText: string = await response.text();
+    console.log(responseText);
+    let responseJSON: JSON = JSON.parse(responseText);
+
+    console.log(responseJSON);
+    server.innerHTML = responseText;
+    console.log(server);
 }
 }
