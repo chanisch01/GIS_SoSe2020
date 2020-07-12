@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe11;
 (function (Aufgabe11) {
     let collection;
-    let databaseUrl = "mongodb+srv://gisuser2020:dv1Y6ayeEBvevpAf@marcelgis.1jm82.mongodb.net/Test?retryWrites=true&w=majority";
+    let databaseUrl = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
@@ -26,7 +26,7 @@ var Aufgabe11;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        collection = mongoClient.db("Test").collection("Students");
+        collection = mongoClient.db("Aufgabe").collection("Daten");
         console.log("Database connection ", collection != undefined);
     }
     async function handleRequest(_request, _response) {

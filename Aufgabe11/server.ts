@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe11 {
 
   let collection: Mongo.Collection;
-  let databaseUrl: string = "mongodb+srv://gisuser2020:dv1Y6ayeEBvevpAf@marcelgis.1jm82.mongodb.net/Test?retryWrites=true&w=majority";
+  let databaseUrl: string = "mongodb+srv://new_user:hallo@chanida.jbyiv.mongodb.net/Aufgabe?retryWrites=true&w=majority";
 
   let port: number = Number(process.env.PORT);
   if (!port)
@@ -34,7 +34,7 @@ export namespace Aufgabe11 {
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
 
-    collection = mongoClient.db("Test").collection("Students");
+    collection = mongoClient.db("Aufgabe").collection("Daten");
     console.log("Database connection ", collection != undefined);
   }
 
