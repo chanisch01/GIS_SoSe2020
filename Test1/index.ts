@@ -1,13 +1,13 @@
 namespace Aufgabe11 {
 
     let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDatenbank");
-    buttonHTML.addEventListener("click", absenden);
+    buttonHTML.addEventListener("click", clickAbsenden);
 
     let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonJSON");
-    buttonJSON.addEventListener("click", anfordern);
+    buttonJSON.addEventListener("click", clickAnfordern);
 
 
-    async function absenden(): Promise<void> {
+    async function clickAbsenden(): Promise<void> {
 
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://csgis2020.herokuapp.com";
@@ -17,7 +17,7 @@ namespace Aufgabe11 {
         console.log("Absenden");
     }
 
-    async function anfordern(): Promise<void> {
+    async function clickAnfordern(): Promise<void> {
         
         let url: string = "https://csgis2020.herokuapp.com";
         let response: Response = await fetch(url);

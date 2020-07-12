@@ -2,10 +2,10 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     let buttonHTML = document.getElementById("buttonDatenbank");
-    buttonHTML.addEventListener("click", absenden);
+    buttonHTML.addEventListener("click", clickAbsenden);
     let buttonJSON = document.getElementById("buttonJSON");
-    buttonJSON.addEventListener("click", anfordern);
-    async function absenden() {
+    buttonJSON.addEventListener("click", clickAnfordern);
+    async function clickAbsenden() {
         let formData = new FormData(document.forms[0]);
         let url = "https://csgis2020.herokuapp.com";
         let query = new URLSearchParams(formData);
@@ -13,7 +13,7 @@ var Aufgabe11;
         await fetch(url);
         console.log("Absenden");
     }
-    async function anfordern() {
+    async function clickAnfordern() {
         let url = "https://csgis2020.herokuapp.com";
         let response = await fetch(url);
         let responseText = await response.text();
