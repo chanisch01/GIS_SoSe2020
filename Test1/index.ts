@@ -22,6 +22,6 @@ namespace Aufgabe11 {
         let url: string = "https://csgis2020.herokuapp.com";
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
-        document.getElementById("output")!.innerHTML = responseText;
+        document.getElementById("text")!.innerHTML = responseText;
     }
 }
